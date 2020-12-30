@@ -1,0 +1,15 @@
+body {
+    padding: 2rem 4rem;
+    text-align: center;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+h1 {
+    font-family: "Pulp Display", sans-serif;
+}
+
+.light {
+    font-weight: 300;
+}
+
+p {}
