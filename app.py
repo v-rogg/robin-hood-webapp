@@ -39,5 +39,9 @@ def game_status():
     return json.dumps({'gameStatus': game})
 
 
+@app.route('/vue')
+def vue():
+    return render_template('vue.html', gamestatus=game)
+
 if __name__ == '__main__':
     app.run()

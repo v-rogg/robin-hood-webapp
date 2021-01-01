@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Test</title>
+    <link rel='icon' type='image/png' href='/app/robin.svg'>
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        window.onload = function () {
+            const app = Vue.createApp({
+                data() {
+                    return { count: 4 }
+                },
+                delimiters: ['[[',']]']
+            })
+            const vm = app.mount('#app')
+            console.log(vm.count)
+        }
+    </script>
+</head>
+<body id="app">
+    {{ gamestatus|lower }}
+    [[ count ]]
+</body>
+</html>

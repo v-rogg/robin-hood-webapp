@@ -1,7 +1,9 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import {onMount} from 'svelte';
+    import Foo from "./routes/components/Foo.svelte";
 
     let rand = -1;
+
     // let gameStatus = null;
 
     function getRand() {
@@ -65,4 +67,5 @@
     <button on:click={getRand}>Get a random number</button>
 
     <h2>{gameStatus}</h2>
+    <Foo/>
 </main>

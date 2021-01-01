@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Refactor">
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Add hybrid svelte with jinja rendering">
+      <change afterPath="$PROJECT_DIR$/client/src/routes/components/Foo.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/vue.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.svelte" afterDir="false" />
@@ -17,6 +18,7 @@
       <list>
         <option value="Flask Main" />
         <option value="HTML File" />
+        <option value="Foo" />
       </list>
     </option>
   </component>
@@ -54,10 +56,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\client\src\routes\components" />
     </key>
   </component>
   <component name="RunManager">
@@ -209,7 +215,7 @@
       <workItem from="1609338357877" duration="2058000" />
       <workItem from="1609436483685" duration="595000" />
       <workItem from="1609450957112" duration="4196000" />
-      <workItem from="1609495976544" duration="3540000" />
+      <workItem from="1609495976544" duration="5618000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -253,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609500793676</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add hybrid svelte with jinja rendering">
+      <created>1609502630916</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609502630916</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +290,8 @@
     <MESSAGE value="Add readme" />
     <MESSAGE value="Test hybrid approach" />
     <MESSAGE value="Refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
+    <MESSAGE value="Add hybrid svelte with jinja rendering" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add hybrid svelte with jinja rendering" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609349102861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
