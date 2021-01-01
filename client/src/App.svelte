@@ -2,14 +2,19 @@
     import { onMount } from 'svelte';
 
     let rand = -1;
+    let gameStatus = null;
+
     function getRand() {
         fetch("./rand")
-            .then(d => d.text())
-            .then(d => (rand = d));
+            .then(res => res.text())
+            .then(d => (rand = parseInt(d)));
     }
 
     onMount(async () => {
         getRand();
+        fetch('./game-status')
+            .then(res => res.json())
+            .then(d => (gameStatus = d.gameStatus))
     })
 </script>
 
@@ -58,4 +63,6 @@
     </div>
     <h1>Your number is <strong>{rand}</strong>!</h1>
     <button on:click={getRand}>Get a random number</button>
+
+    <h2>{gameStatus}</h2>
 </main>
