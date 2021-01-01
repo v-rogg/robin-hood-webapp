@@ -1,14 +1,14 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Flask (app-svelte.py)" type="Python.FlaskServer" nameIsGenerated="true">
+  <configuration default="false" name="Flask (app.py)" type="Python.FlaskServer" nameIsGenerated="true">
     <option name="additionalOptions" value="-p 3000" />
     <option name="flaskDebug" value="true" />
     <module name="Robin Hood" />
-    <option name="target" value="$PROJECT_DIR$/app-svelte.py" />
+    <option name="target" value="$PROJECT_DIR$/app.py" />
     <option name="targetType" value="PATH" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <option name="SDK_HOME" value="wsl://UBUNTU/usr/bin/python3.8" />
-    <option name="WORKING_DIRECTORY" value="" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
