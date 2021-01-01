@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
 
     let rand = -1;
-    let gameStatus = null;
+    // let gameStatus = null;
 
     function getRand() {
         fetch("./rand")
@@ -12,9 +12,9 @@
 
     onMount(async () => {
         getRand();
-        fetch('./game-status')
-            .then(res => res.json())
-            .then(d => (gameStatus = d.gameStatus))
+        // fetch('./game-status')
+        //     .then(res => res.json())
+        //     .then(d => (gameStatus = d.gameStatus))
     })
 </script>
 

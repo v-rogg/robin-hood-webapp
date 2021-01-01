@@ -13,7 +13,8 @@ def first():
 
 @app.route('/app')
 def application():
-    return send_from_directory('client/public', 'index.html')
+    # return send_from_directory('client/public', 'index.html')
+    return render_template('index.html', gamestatus=game)
 
 
 @app.route('/app/<path:path>')
