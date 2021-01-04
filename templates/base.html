@@ -11,7 +11,8 @@
     {% block head %}{% endblock %}
 
     <script>
-        let initialGameRunning = {{ gameRunning|lower }}
+        let initialGameRunning = {{ gameRunning|lower }};
+        let initialPlayers = {{ players|safe }};
     </script>
 </head>
 

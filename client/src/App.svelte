@@ -3,6 +3,7 @@
     import Random from "./routes/components/Random.svelte";
     import AddPlayer from "./routes/components/Players.svelte";
     import Game from "./routes/components/Game.svelte";
+    import SocketIO from "./routes/components/SocketIO.svelte";
 
     let gameRunning = false;
 
@@ -14,8 +15,8 @@
 
     function getGameRunning() {
         fetch('/api/game')
-        .then(response => response.json())
-        .then(res => gameRunning = res.gameRunning);
+            .then(response => response.json())
+            .then(res => gameRunning = res.gameRunning);
     }
 
     onMount(() => {
@@ -40,6 +41,7 @@
 </style>
 
 <main>
+    <SocketIO/>
     {#if !gameRunning}
     <section>
         <Random/>

@@ -27,6 +27,7 @@
     "@tsconfig/svelte": "^1.0.0"
   },
   "dependencies": {
-    "sirv-cli": "^1.0.10"
+    "sirv-cli": "^1.0.10",
+    "socket.io-client": "^3.0.4"
   }
 }
