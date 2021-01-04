@@ -1,10 +1,28 @@
 <script lang="ts">
+    import {onMount} from "svelte";
     import Random from "./routes/components/Random.svelte";
     import AddPlayer from "./routes/components/Players.svelte";
+    import Game from "./routes/components/Game.svelte";
+
+    let gameRunning = false;
 
     function startGame() {
-        window.open('./start');
+        // window.open('./start');
+        fetch('/start', {method: 'POST'});
+        getGameRunning();
     }
+
+    function getGameRunning() {
+        fetch('./game')
+        .then(response => response.json())
+        .then(res => gameRunning = res.gameRunning);
+    }
+
+    onMount(() => {
+        // getGameRunning();
+        gameRunning = initialGameRunning;
+    })
+
 </script>
 
 <style lang="sass">
@@ -22,6 +40,7 @@
 </style>
 
 <main>
+    {#if !gameRunning}
     <section>
         <Random/>
     </section>
@@ -33,4 +52,9 @@
             Start Game
         </button>
     </section>
+    {:else}
+    <section>
+        <Game/>
+    </section>
+    {/if}
 </main>

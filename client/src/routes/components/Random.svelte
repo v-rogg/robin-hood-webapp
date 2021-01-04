@@ -18,11 +18,6 @@
     h1
         font-size: 2em
         font-weight: 400
-
-
-    @media (min-width: 640px)
-        main
-            max-width: none
 </style>
 
 <h1>Your number is <strong>{rand}</strong>!</h1>

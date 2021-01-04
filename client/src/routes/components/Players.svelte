@@ -1,30 +1,32 @@
-<script lang="ts">
+<script>
     import {onMount} from "svelte";
+    import {players} from "../../stores.ts";
 
-    let players = [];
+    let players_value;
+    players.subscribe(value => players_value = value);
+
+    let first_name;
+    let last_name;
 
     function getPlayers() {
-        fetch('./addPlayer', {
+        fetch('./players', {
                 method: 'GET',
             })
                 .then(response => response.json())
                 .then(res => {
-                    players = res.players;
+                    players.set(res.players);
                 })
     }
 
-    let name;
-    let surname;
-
     function addPlayer() {
         let user = {
-            name: name,
-            surname: surname,
+            first_name: first_name,
+            last_name: last_name,
         }
-        name = null;
-        surname = null;
+        first_name = null;
+        last_name = null;
 
-        fetch('./addPlayer', {
+        fetch('./players', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -33,7 +35,7 @@
         })
             .then(response => response.json())
             .then(res => {
-                players = res.players
+                players.set(res.players);
             })
     }
 
@@ -57,15 +59,15 @@
 </style>
 
 <form on:submit|preventDefault={addPlayer}>
-    <input type="text" id="name" placeholder="Name" bind:value={name}>
-    <input type="text" id="surname" placeholder="Surname" bind:value={surname}>
+    <input type="text" id="name" placeholder="Name" bind:value={first_name}>
+    <input type="text" id="surname" placeholder="Surname" bind:value={last_name}>
     <button type="submit">Add player</button>
 </form>
 
 <ul>
-    {#each players as {name, surname}}
+    {#each players_value as {first_name, last_name}}
         <li>
-            {name} {surname}
+            {first_name} {last_name}
         </li>
     {/each}
 </ul>

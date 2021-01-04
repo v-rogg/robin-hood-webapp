@@ -3,16 +3,16 @@ import random
 import json
 
 app = Flask(__name__)
-game = False
+gameRunning = False
 players = []
+
 
 @app.route('/')
 def prepare():
-    return render_template('index.html')
-    # return render_template('prepare.html')
+    return redirect(url_for('application'))
 
 
-@app.route('/addPlayer', methods=['GET', 'POST'])
+@app.route('/players', methods=['GET', 'POST'])
 def players_route():
     if request.method == 'POST':
         players.append(request.json)
@@ -22,8 +22,7 @@ def players_route():
 @app.route('/app')
 def application():
     # return send_from_directory('client/public', 'index.html')
-    # return render_template('index.html')
-    return render_template('prepare.html')
+    return render_template('index.html', gameRunning=gameRunning)
 
 
 @app.route('/app/<path:path>')
@@ -36,16 +35,16 @@ def rand():
     return str(random.randint(0, 100))
 
 
-@app.route('/start', methods=['POST', 'GET'])
-def start():
-    global game
-    game = True
-    return redirect(url_for('game_status'))
+@app.route('/start', methods=['POST'])
+def start_game():
+    global gameRunning
+    gameRunning = True
+    return json.dumps({'gameRunning': gameRunning})
 
 
-@app.route('/game-status')
-def game_status():
-    return json.dumps({'gameStatus': game})
+@app.route('/game')
+def game_running():
+    return json.dumps({'gameRunning': gameRunning})
 
 
 if __name__ == '__main__':
