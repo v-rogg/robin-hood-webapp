@@ -9,7 +9,7 @@
     let last_name;
 
     function getPlayers() {
-        fetch('./players', {
+        fetch('/api/players', {
                 method: 'GET',
             })
                 .then(response => response.json())
@@ -26,7 +26,7 @@
         first_name = null;
         last_name = null;
 
-        fetch('./players', {
+        fetch('/api/players', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

@@ -8,12 +8,12 @@
 
     function startGame() {
         // window.open('./start');
-        fetch('/start', {method: 'POST'});
+        fetch('/api/start', {method: 'POST'});
         getGameRunning();
     }
 
     function getGameRunning() {
-        fetch('./game')
+        fetch('/api/game')
         .then(response => response.json())
         .then(res => gameRunning = res.gameRunning);
     }

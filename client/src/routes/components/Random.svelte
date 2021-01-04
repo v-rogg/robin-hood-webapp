@@ -4,7 +4,7 @@
     let rand = -1;
 
     function getRand() {
-        fetch("./rand")
+        fetch("/api/rand")
             .then(res => res.text())
             .then(d => (rand = parseInt(d)));
     }
