@@ -1,14 +1,22 @@
-from flask import Flask, send_from_directory, render_template, redirect, url_for
+from flask import Flask, send_from_directory, render_template, redirect, url_for, request
 import random
 import json
 
 app = Flask(__name__)
 game = False
-
+players = []
 
 @app.route('/')
-def first():
-    return render_template('first.html')
+def prepare():
+    return render_template('index.html')
+    # return render_template('prepare.html')
+
+
+@app.route('/addPlayer', methods=['GET', 'POST'])
+def players_route():
+    if request.method == 'POST':
+        players.append(request.json)
+    return json.dumps({'players': players})
 
 
 @app.route('/app')
@@ -38,10 +46,6 @@ def start():
 def game_status():
     return json.dumps({'gameStatus': game})
 
-
-@app.route('/vue')
-def vue():
-    return render_template('vue.html', gamestatus=game)
 
 if __name__ == '__main__':
     app.run()

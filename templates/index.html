@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width,initial-scale=1'>
+{% extends 'base.html' %}
 
-	<link rel='icon' type='image/png' href='/app/robin.svg'>
+{% block head %}
 	<link rel='stylesheet' href='/app/global.css'>
 	<link rel='stylesheet' href='/app/build/bundle.css'>
 
 	<script defer src='/app/build/bundle.js'></script>
-    <script>
-        let gameStatus = {{ gamestatus|lower }};
-    </script>
-</head>
-
-<body>
-</body>
-</html>
+{% endblock %}

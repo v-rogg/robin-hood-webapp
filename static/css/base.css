@@ -12,4 +12,6 @@ h1 {
     font-weight: 300;
 }
 
-p {}
+button {
+    margin-top: 3rem;
+}

@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Add hybrid svelte with jinja rendering">
-      <change afterPath="$PROJECT_DIR$/client/src/routes/components/Foo.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/vue.html" afterDir="false" />
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Test vue based approach">
+      <change afterPath="$PROJECT_DIR$/client/src/routes/components/Players.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/favicons/obacht-975.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/prepare.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/robin-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/robin.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/Foo.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/components/Random.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/first.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/hello.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hello.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vue.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +31,7 @@
         <option value="Flask Main" />
         <option value="HTML File" />
         <option value="Foo" />
+        <option value="AddPlayer" />
       </list>
     </option>
   </component>
@@ -42,27 +55,34 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1m3ZWII05x1kcF3Wk8cJkB5xt2Z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/favicons" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static\favicons\" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static\css" />
+      <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static\favicons" />
+      <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\client\src\routes\components" />
     </key>
   </component>
@@ -215,7 +235,10 @@
       <workItem from="1609338357877" duration="2058000" />
       <workItem from="1609436483685" duration="595000" />
       <workItem from="1609450957112" duration="4196000" />
-      <workItem from="1609495976544" duration="5618000" />
+      <workItem from="1609495976544" duration="7501000" />
+      <workItem from="1609588360384" duration="3611000" />
+      <workItem from="1609674234832" duration="2977000" />
+      <workItem from="1609718261606" duration="4333000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -266,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609502630916</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Test vue based approach">
+      <created>1609510022582</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609510022582</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,16 +315,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add gitignore" />
     <MESSAGE value="Add gitignore&#10;Add flask" />
     <MESSAGE value="Add readme" />
     <MESSAGE value="Test hybrid approach" />
     <MESSAGE value="Refactor" />
     <MESSAGE value="Add hybrid svelte with jinja rendering" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add hybrid svelte with jinja rendering" />
+    <MESSAGE value="Test vue based approach" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test vue based approach" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609349102861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609722764497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/01_frontend$01_frontend.coverage" NAME="01_frontend Coverage Results" MODIFIED="1608728037687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_svelte_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609500795562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/01_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1608733595229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

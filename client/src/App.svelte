@@ -1,23 +1,10 @@
 <script lang="ts">
-    import {onMount} from 'svelte';
-    import Foo from "./routes/components/Foo.svelte";
+    import Random from "./routes/components/Random.svelte";
+    import AddPlayer from "./routes/components/Players.svelte";
 
-    let rand = -1;
-
-    // let gameStatus = null;
-
-    function getRand() {
-        fetch("./rand")
-            .then(res => res.text())
-            .then(d => (rand = parseInt(d)));
+    function startGame() {
+        fetch('./start-game')
     }
-
-    onMount(async () => {
-        getRand();
-        // fetch('./game-status')
-        //     .then(res => res.json())
-        //     .then(d => (gameStatus = d.gameStatus))
-    })
 </script>
 
 <style lang="sass">
@@ -26,46 +13,24 @@
         font-weight: 400
         text-align: center
         padding: 1em
-        max-width: 240px
+        max-width: 30rem
         margin: 0 auto
         font-variant-numeric: normal
-
-
-    h1
-        /*text-transform: uppercase;*/
-        font-size: 2em
-        font-weight: 400
-
-
-    @media (min-width: 640px)
-        main
-            max-width: none
-
-    div
         display: flex
         flex-direction: column
-        font-family: "Pulp Display", sans-serif
-        margin: 2rem 0 4em
-        text-align: center
-
-        svg
-            height: 5rem
+        gap: 3rem
 </style>
 
-<svelte:head>
-    <title>Robin Hood - Darttracker</title>
-</svelte:head>
-
 <main>
-    <div>
-<!--        <svg x="0px" y="0px" viewBox="0 0 599.2 378.4">-->
-<!--            <path d="M583,168.9l15.8,20.3c0.6,0.7,0,1.7-0.9,1.6l-58.6-9c-0.3,0-0.5-0.2-0.6-0.4L522.3,161c-23-0.2-52.1,1.5-88.4,6.7c1.2,7.1,1.8,14.4,1.8,21.9c0,85-78.1,151.8-166.4,132.7C218.2,311.2,178,271,167,219.9c-19.1-88.4,47.7-166.4,132.7-166.4c47.3,0,89,24.2,113.4,60.9c-19.2,12-34.3,19.8-40,22.7c-16.1-22.5-42.2-37.3-71.8-37.8c-49.6-0.8-91,39.2-91.7,88.8c-0.7,50.4,39.9,91.4,90.1,91.4c49.8,0,90.1-40.4,90.1-90.1c0-4.9-0.4-9.6-1.1-14.3c-14.1,2.7-29.1,5.9-45,9.7c0.1,0.7,0.1,1.4,0.2,2.1c1.3,22.6-15,42.9-37.4,46.3c-28.1,4.2-52.1-18-51.1-45.5c0.9-23.5,20.5-42.5,44-42.6c12.6-0.1,23.9,5.1,32,13.4c-8,4-25.5,12.6-32.7,16.1c-1.2,0.6-2.3,1.5-3.1,2.6c-2.4,3.2-2.6,5.9-2.5,7c0,0.3,0.4,0.5,0.6,0.4c14.3-6.5,28.6-13.2,42.6-20c0.9-0.5,1.9-0.9,2.8-1.3c11.9-5.8,23.7-11.8,35.2-17.8c1-0.5,2.1-1.1,3.1-1.6c13.8-7.3,27.2-14.7,40.1-22.2c2.8-1.6,5.5-3.2,8.2-4.8l0,0c24.3-14.5,46.6-29.5,65.6-44.6V46c0-0.2,0.1-0.5,0.3-0.7l39.9-45c0.6-0.7,1.7-0.3,1.7,0.6l0.7,27.5c0,0.9,1.2,1.3,1.8,0.6c3.1-4,6-8,8.5-11.9c0.4-0.6,1.2-0.6,1.6,0c1.7,2.5,2.7,4,3.2,4.8c0.2,0.3,0.2,0.8,0,1.1c-13.8,19.6-30.1,51.8-126.8,107.8c-12.1,7-25.5,14.4-40.3,22.2c13.4-4.5,28.2-9.6,43.5-14.8c28.5-9.7,58.8-20.2,85.6-29.4l13.7-24.7c0.1-0.2,0.3-0.4,0.5-0.5L581.9,64c0.9-0.3,1.6,0.6,1.2,1.4l-10.8,20.5c-0.4,0.8,0.4,1.7,1.2,1.4c7.9-2.8,13.7-4.9,15.9-5.7c0.5-0.2,1.1,0.1,1.3,0.6l3.1,8.5c0.2,0.5-0.1,1.1-0.6,1.3l-17.2,6.1c-0.9,0.3-0.9,1.5-0.1,1.9l21.9,9.3c0.8,0.4,0.8,1.6-0.1,1.9L542,131.3c-0.2,0.1-0.5,0.1-0.7,0l-27.1-11.1l-84.4,30l-43.3,15.4l0,0c0,0,0,0,0,0c1.4-0.3,19.6-3.9,45.4-7.4c48.6-6.6,124.3-12.5,166.1,5.6c0.3,0.1,0.6,0.5,0.6,0.8c0.3,2.6,0.4,4.2,0.5,5.1c0.1,0.7-0.6,1.2-1.2,1.1c-2.7-0.6-7.2-2-14-3.5C583.1,167.1,582.4,168.2,583,168.9z"/>-->
-<!--        </svg>-->
-        Robin Hood
-    </div>
-    <h1>Your number is <strong>{rand}</strong>!</h1>
-    <button on:click={getRand}>Get a random number</button>
-
-    <h2>{gameStatus}</h2>
-    <Foo/>
+    <section>
+        <Random/>
+    </section>
+    <section>
+        <AddPlayer/>
+    </section>
+    <section>
+        <button on:click={startGame}>
+            Start Game
+        </button>
+    </section>
 </main>
