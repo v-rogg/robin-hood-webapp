@@ -22,7 +22,8 @@ def players_route():
 @app.route('/app')
 def application():
     # return send_from_directory('client/public', 'index.html')
-    return render_template('index.html', gamestatus=game)
+    # return render_template('index.html')
+    return render_template('prepare.html')
 
 
 @app.route('/app/<path:path>')
@@ -35,11 +36,11 @@ def rand():
     return str(random.randint(0, 100))
 
 
-@app.route('/start-game', methods=['POST', 'GET'])
+@app.route('/start', methods=['POST', 'GET'])
 def start():
     global game
     game = True
-    return redirect(url_for('application'))
+    return redirect(url_for('game_status'))
 
 
 @app.route('/game-status')

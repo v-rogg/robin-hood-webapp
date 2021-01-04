@@ -3,7 +3,7 @@
     import AddPlayer from "./routes/components/Players.svelte";
 
     function startGame() {
-        fetch('./start-game')
+        window.open('./start');
     }
 </script>
 
