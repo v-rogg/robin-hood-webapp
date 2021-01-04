@@ -41,22 +41,22 @@
 </style>
 
 <main>
-    <SocketIO/>
+<!--    <SocketIO/>-->
     {#if !gameRunning}
-    <section>
-        <Random/>
-    </section>
+<!--    <section>-->
+<!--        <Random/>-->
+<!--    </section>-->
     <section>
         <AddPlayer/>
     </section>
-    <section>
-        <button on:click={startGame}>
-            Start Game
-        </button>
-    </section>
+<!--    <section>-->
+<!--        <button on:click={startGame}>-->
+<!--            Start Game-->
+<!--        </button>-->
+<!--    </section>-->
     {:else}
-    <section>
-        <Game/>
-    </section>
+<!--    <section>-->
+<!--        <Game/>-->
+<!--    </section>-->
     {/if}
 </main>

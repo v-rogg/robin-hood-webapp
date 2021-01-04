@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     {% block head %}{% endblock %}
 
-    <script>
+    <script about="initial values">
         let initialGameRunning = {{ gameRunning|lower }};
         let initialPlayers = {{ players|safe }};
     </script>

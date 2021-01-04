@@ -65,12 +65,23 @@ def handle_event(data):
     socketio.emit('response', data)
 
 
+def send_players():
+    print('Players sent: ' + str(players))
+    socketio.emit('players', players)
+
+
 @socketio.on('addPlayer')
 def add_player(data):
     print('Player received: ' + str(data))
     players.append(data)
-    print('Players sent: ' + str(players))
-    socketio.emit('players', players)
+    send_players()
+
+
+@socketio.on('removePlayer')
+def remove_player(data):
+    print('Player received: ' + str(data))
+    players.remove(data)
+    send_players()
 
 
 if __name__ == '__main__':

@@ -11,16 +11,6 @@
     let first_name;
     let last_name;
 
-    function getPlayers() {
-        // fetch('/api/players', {
-        //         method: 'GET',
-        //     })
-        //         .then(response => response.json())
-        //         .then(res => {
-        //             players.set(res.players);
-        //         })
-    }
-
     socket.on('players', data => {
         console.log(data)
         players.set(data)
@@ -34,24 +24,16 @@
         first_name = null;
         last_name = null;
 
-        // fetch('/api/players', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json;charset=utf-8'
-        //     },
-        //     body: JSON.stringify(user)
-        // })
-        //     .then(response => response.json())
-        //     .then(res => {
-        //         players.set(res.players);
-        //     })
         socket.emit('addPlayer', user)
     }
 
+    function removePlayer(event) {
+        console.log(players_value[event.target.id]);
+        socket.emit('removePlayer', players_value[event.target.id]);
+    }
+
     onMount(() => {
-        // getPlayers();
         players.set(initialPlayers)
-        console.log(players_value)
     })
 </script>
 
@@ -82,8 +64,8 @@
 </form>
 
 <ul>
-    {#each players_value as {first_name, last_name}}
-        <li>
+    {#each players_value as {first_name, last_name}, id}
+        <li on:click={removePlayer} id="{id}">
             {first_name} {last_name}
         </li>
     {/each}
