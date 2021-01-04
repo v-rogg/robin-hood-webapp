@@ -27,8 +27,8 @@ def base(path):
 
 
 @api.route('/players', methods=['GET', 'POST'])
-def players_route():
-    if request.method == 'POST':
+def players_api():
+    if request.method == 'POST' and not gameRunning:
         players.append(request.json)
     return json.dumps({'players': players})
 
