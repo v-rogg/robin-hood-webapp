@@ -8,28 +8,31 @@
     let players_value;
     players.subscribe(value => players_value = value);
 
-    let first_name;
-    let last_name;
+    let name;
 
     socket.on('players', data => {
-        console.log(data)
-        players.set(data)
+        players.set(JSON.parse(data))
     })
 
     function addPlayer() {
         let user = {
-            first_name: first_name,
-            last_name: last_name,
+            name: name,
         }
-        first_name = null;
-        last_name = null;
+        name = null;
 
-        socket.emit('addPlayer', user)
+        socket.emit('addPlayer', user);
     }
 
     function removePlayer(event) {
-        console.log(players_value[event.target.id]);
         socket.emit('removePlayer', players_value[event.target.id]);
+    }
+
+    function startGame() {
+        fetch('/api/start', {method: 'POST'})
+    }
+
+    function nextPlayer() {
+        fetch('/api/next-player', {method: 'POST'})
     }
 
     onMount(() => {
@@ -40,33 +43,59 @@
 <style lang="sass">
     form
         display: flex
-        justify-content: space-evenly
+        justify-content: space-between
+        margin: 2.5rem auto 0
 
     input
-        width: 10rem
+        //width: 10rem
+        flex-grow: 2
+        margin-right: 1em
 
     ul
-        width: 10em
+        padding: 0
         margin: 1rem auto 0
         text-align: left
         list-style: none
 
     li
+        width: max-content
+        margin: .5em 0
+
         &:hover
-            color: dodgerblue
             cursor: pointer
+            text-decoration: line-through
+            color: red
+
+    div
+        margin: 5rem auto 0
+        display: flex
+        justify-content: right
+        gap: 1em
+
+    .blue
+        color: dodgerblue
 </style>
 
 <form on:submit|preventDefault={addPlayer}>
-    <input type="text" id="name" placeholder="Name" bind:value={first_name}>
-    <input type="text" id="surname" placeholder="Surname" bind:value={last_name}>
+    <input type="text" id="name" placeholder="Name" bind:value={name}>
     <button type="submit">Add player</button>
 </form>
 
+<hr/>
+
 <ul>
-    {#each players_value as {first_name, last_name}, id}
-        <li on:click={removePlayer} id="{id}">
-            {first_name} {last_name}
+    {#each players_value as {name, uuid, active}}
+        <li on:click={removePlayer} id="{uuid}" class:blue={active}>
+            {name}
         </li>
     {/each}
 </ul>
+
+<div>
+    <button on:click={startGame}>
+        Start Game
+    </button>
+    <button on:click={nextPlayer}>
+        Next Player
+    </button>
+</div>

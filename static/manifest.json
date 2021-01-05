@@ -1,0 +1,16 @@
+{
+  "name": "Robin Hood - Dart Tracker",
+  "short-name": "Robin Hood",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#19A962",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/static/favicons/obacht-975.png",
+      "sizes": "975x975",
+      "type": "image\/png"
+    }
+  ]
+}
