@@ -7,6 +7,7 @@
     import {io} from "socket.io-client";
 
     import {CLIENT_STATE_STORE, players_store, SERVER_STATE_STORE} from "./stores";
+    import Controls from "./routes/components/Controls.svelte";
 
     const socket = io('ws://localhost:3000');
 
@@ -24,26 +25,6 @@
         SERVER_STATE_STORE.set(data);
         CLIENT_STATE_STORE.set(data);
     })
-
-    function switchMode() {
-        switch (CLIENT_STATE) {
-            case 'New Game':
-                CLIENT_STATE_STORE.set('Add Players');
-                break;
-            case 'Add Players':
-                CLIENT_STATE_STORE.set('New Game');
-                break;
-        }
-    }
-
-    function reset() {
-        fetch('/api/reset', {method: 'POST'})
-            .then(result => result.json())
-            .then(res => {
-                // SERVER_STATE_STORE.set(res)
-                // CLIENT_STATE_STORE.set(res)
-            })
-    }
 </script>
 
 <style lang="sass">
@@ -52,35 +33,25 @@
         font-weight: 400
         text-align: center
         font-variant-numeric: normal
-        gap: 3rem
         height: calc(100vh - 6rem)
         padding: 3rem
-
-    .buttons
-        display: flex
-        gap: 1em
-        margin-left: 13rem
-        margin-top: -2rem
+        display: grid
+        grid-template-rows: auto max-content
 </style>
 
 <main>
     <States/>
-    <!--{SERVER_STATE}-->
-    {#if CLIENT_STATE === 'New Game' || CLIENT_STATE === 'Started'}
+
+
+    {#if CLIENT_STATE === 'New Game'}
         <Players/>
     {/if}
     {#if CLIENT_STATE === 'Add Players'}
         <AddPlayers/>
     {/if}
+    {#if SERVER_STATE === 'Started'}
+        <Game/>
+    {/if}
 
-    <div class="buttons">
-        {#if SERVER_STATE === 'New Game'}
-            <button on:click={switchMode}>
-                Switch Mode
-            </button>
-        {/if}
-        <button on:click={reset}>
-            Reset
-        </button>
-    </div>
+    <Controls/>
 </main>

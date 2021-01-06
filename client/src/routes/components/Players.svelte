@@ -1,5 +1,5 @@
 <script>
-    import {CLIENT_STATE_STORE, players_store, SERVER_STATE_STORE} from "../../stores.ts";
+    import {players_store} from "../../stores.ts";
     import {io} from 'socket.io-client';
 
     const socket = io('ws://localhost:3000');
@@ -7,68 +7,45 @@
     let players;
     players_store.subscribe(value => players = value);
 
-    let SERVER_STATE;
-    SERVER_STATE_STORE.subscribe(value => SERVER_STATE = value);
-
     let name;
 
     socket.on('players', data => {
         players_store.set(JSON.parse(data))
     })
 
-    function addPlayer() {
-        let user = {
-            name: name,
-        }
-        name = null;
-
-        socket.emit('addPlayer', user);
-    }
-
     function removePlayer(event) {
-        socket.emit('removePlayer', players.find(({uuid}) => uuid === event.target.id));
-    }
-
-    function startGame() {
-        fetch('/api/start', {method: 'POST'})
-            .then(result => result.json())
-            .then(res => {
-                // SERVER_STATE_STORE.set(res)
-                // CLIENT_STATE_STORE.set(res)
-            })
-    }
-
-    function nextPlayer() {
-        fetch('/api/next-player', {method: 'POST'})
+        console.log(event)
+        socket.emit('removePlayer', players.find(({uuid}) => uuid === event.target.parentNode.id));
     }
 </script>
 
 <style lang="sass">
     section
-        //display: flex
-        //flex-direction: column
-        //justify-content: space-between
-        //width: 100%
-        //height: 100%
         display: flex
         flex-direction: column
-        justify-content: space-between
-        height: 100%
+        align-items: center
 
-    form
-        display: flex
-        justify-content: space-between
-        //margin: 2.5rem auto 0
-
-    ul
+    table
         padding: 0
-        margin: 1rem auto 0
+        margin: 0
         text-align: left
         list-style: none
+        min-width: 10rem
+        border-collapse: collapse
 
-    li
+    th
+        text-align: center
+        border-bottom: 1px solid black
+
+    tr
         width: max-content
         margin: .5em 0
+
+        &:nth-child(2n)
+            background: #DFDFDF
+
+        td
+            padding: .5em 1em
 
         span
             font-family: "IBM Plex Mono SemiBold", sans-serif
@@ -78,33 +55,32 @@
             text-decoration: line-through
             color: red
 
-    .buttons
-        //margin: 5rem auto 0
-        display: flex
-        justify-content: right
-        gap: 1em
-
     .blue
         color: dodgerblue
 </style>
 
 <section>
-    <ul>
-        {#each players as {name, uuid, active, points}}
-            <li on:click={removePlayer} id="{uuid}" class:blue={active}>
-                {name} <span>{points}</span>
-            </li>
-        {/each}
-    </ul>
-
-    <div class="buttons">
-        {#if SERVER_STATE === 'New Game'}
-            <button on:click={startGame}>
-                Start Game
-            </button>
-        {/if}
-        <button on:click={nextPlayer}>
-            Next Player
-        </button>
-    </div>
+    <h1>
+        Players:
+    </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Points</th>
+                <th>UUID</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each players as {name, uuid, active, points}}
+                <tr on:click={removePlayer} id="{uuid}" class:blue={active}>
+                    <td>{name}</td>
+                    <td><span>{points}</span></td>
+                    <td>{uuid}</td>
+                    <td>{active}</td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
 </section>

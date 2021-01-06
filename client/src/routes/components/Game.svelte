@@ -1,23 +1,16 @@
 <script lang="ts">
     import {players_store} from "../../stores";
+    import Players from "./Players.svelte";
 
     let players;
 
-    players_store.subscribe(value => players= value);
+    players_store.subscribe(value => players = value);
 </script>
 
 <style lang="sass">
-    ul
-        width: 10em
-        margin: 1rem auto 0
-        text-align: left
 </style>
 
-<h1>Game is running</h1>
-<ul>
-    {#each players as {first_name, last_name}}
-        <li>
-            {first_name} {last_name}
-        </li>
-    {/each}
-</ul>
+<section id="game">
+    <h1>Game is running!</h1>
+    <Players/>
+</section>
