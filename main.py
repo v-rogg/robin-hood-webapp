@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request, render_template, send_from_directory, Blueprint
+from flask import Flask, Response, render_template, send_from_directory, Blueprint
 from flask_socketio import SocketIO
 import random
 import json
@@ -12,13 +12,13 @@ socketio = SocketIO(app)
 
 players = []
 activePlayer = -1
-gameRunning = False
+SERVER_STATE = 'New Game'
 
 
 @app.route('/')
 def application():
     # return redirect(url_for('client.application'))
-    return render_template('index.html', gameRunning=gameRunning, players=json.dumps(players))
+    return render_template('index.html', SERVER_STATE=SERVER_STATE, players=json.dumps(players))
 
 
 # @client.route('/')
@@ -39,26 +39,39 @@ def rand():
 
 @api.route('/start', methods=['POST'])
 def start_game():
-    global gameRunning
     global activePlayer
+    global SERVER_STATE
     if len(players) > 0:
-        gameRunning = True
-        activePlayer = random.randint(0, len(players))
+        SERVER_STATE = 'Started'
+        activePlayer = random.randint(0, len(players)-1)
         players[activePlayer]['active'] = True
     send_players()
-    return json.dumps({'gameRunning': gameRunning})
+    send_server_state()
+    return Response(status=200)
 
 
 @api.route('/next-player', methods=['POST'])
 def next_player():
     global activePlayer
+    players[activePlayer]['points'] -= random.randint(0, 180)
     players[activePlayer]['active'] = False
     activePlayer += 1
     if activePlayer >= len(players):
         activePlayer = 0
     players[activePlayer]['active'] = True
     send_players()
-    return json.dumps({'gameRunning': gameRunning})
+    return Response(status=200)
+
+
+@api.route('/reset', methods=['POST'])
+def reset():
+    global players
+    global SERVER_STATE
+    players = []
+    SERVER_STATE = 'New Game'
+    send_players()
+    send_server_state()
+    return Response(status=200)
 
 
 app.register_blueprint(client, url_prefix='/app')
@@ -72,8 +85,13 @@ def handle_event(data):
 
 
 def send_players():
-    print('Players sent: ' + str(players))
+    print('Players sent: ' + str(json.dumps(players)))
     socketio.emit('players', json.dumps(players))
+
+
+def send_server_state():
+    print('SERVER_STATE sent: ' + SERVER_STATE)
+    socketio.emit('SERVER_STATE', SERVER_STATE)
 
 
 @socketio.on('addPlayer')
@@ -84,13 +102,13 @@ def add_player(data):
              'points': 501,
              'active': False}
     players.append(entry)
-    print('Player added: ' + str(entry))
+    print('Player added: ' + str(json.dumps(entry)))
     send_players()
 
 
 @socketio.on('removePlayer')
 def remove_player(data):
-    print('Player received to REMOVE: ' + str(data))
+    print('Player received to REMOVE: ' + str(json.dumps(data)))
     players.remove(data)
     send_players()
 

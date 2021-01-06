@@ -11,8 +11,8 @@
     {% block head %}{% endblock %}
 
     <script about="initial values">
-        let initialGameRunning = {{ gameRunning|lower }};
         let initialPlayers = {{ players|safe }};
+        let INITIAL_SERVER_STATE = "{{ SERVER_STATE|safe }}";
     </script>
 </head>
 

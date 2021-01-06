@@ -1,9 +1,9 @@
 <script lang="ts">
-    import {players} from "../../stores";
+    import {players_store} from "../../stores";
 
-    let players_value;
+    let players;
 
-    players.subscribe(value => players_value = value);
+    players_store.subscribe(value => players= value);
 </script>
 
 <style lang="sass">
@@ -15,7 +15,7 @@
 
 <h1>Game is running</h1>
 <ul>
-    {#each players_value as {first_name, last_name}}
+    {#each players as {first_name, last_name}}
         <li>
             {first_name} {last_name}
         </li>

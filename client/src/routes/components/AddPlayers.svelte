@@ -1,14 +1,11 @@
 <script>
-    import {CLIENT_STATE_STORE, players_store, SERVER_STATE_STORE} from "../../stores.ts";
+    import {players_store} from "../../stores.ts";
     import {io} from 'socket.io-client';
 
     const socket = io('ws://localhost:3000');
 
     let players;
     players_store.subscribe(value => players = value);
-
-    let SERVER_STATE;
-    SERVER_STATE_STORE.subscribe(value => SERVER_STATE = value);
 
     let name;
 
@@ -31,11 +28,6 @@
 
     function startGame() {
         fetch('/api/start', {method: 'POST'})
-            .then(result => result.json())
-            .then(res => {
-                // SERVER_STATE_STORE.set(res)
-                // CLIENT_STATE_STORE.set(res)
-            })
     }
 
     function nextPlayer() {
@@ -52,13 +44,17 @@
         //height: 100%
         display: flex
         flex-direction: column
-        justify-content: space-between
+        //justify-content: space-between
         height: 100%
 
     form
         display: flex
         justify-content: space-between
         //margin: 2.5rem auto 0
+
+    input
+        flex-grow: 1
+        margin-right: 1em
 
     ul
         padding: 0
@@ -78,17 +74,16 @@
             text-decoration: line-through
             color: red
 
-    .buttons
-        //margin: 5rem auto 0
-        display: flex
-        justify-content: right
-        gap: 1em
-
     .blue
         color: dodgerblue
 </style>
 
 <section>
+    <form on:submit|preventDefault={addPlayer}>
+        <input type="text" id="name" placeholder="Name" bind:value={name} pattern="[a-zA-Z]+\s?[a-zA-Z]+" minlength="3" maxlength="30">
+        <button type="submit">Add player</button>
+    </form>
+
     <ul>
         {#each players as {name, uuid, active, points}}
             <li on:click={removePlayer} id="{uuid}" class:blue={active}>
@@ -96,15 +91,4 @@
             </li>
         {/each}
     </ul>
-
-    <div class="buttons">
-        {#if SERVER_STATE === 'New Game'}
-            <button on:click={startGame}>
-                Start Game
-            </button>
-        {/if}
-        <button on:click={nextPlayer}>
-            Next Player
-        </button>
-    </div>
 </section>

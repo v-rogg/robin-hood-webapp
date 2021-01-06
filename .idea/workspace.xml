@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Add remove player">
-      <change afterPath="$PROJECT_DIR$/static/manifest.json" afterDir="false" />
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Add random startGame&#10;Add nextPlayer&#10;Switch First/Last Name to single Name">
+      <change afterPath="$PROJECT_DIR$/client/src/routes/components/AddPlayers.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/routes/components/States.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/Game.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/components/Game.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/routes/components/Players.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/components/Players.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/Random.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/SocketIO.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/stores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/stores.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +32,8 @@
         <option value="AddPlayer" />
         <option value="Game" />
         <option value="SocketIO" />
+        <option value="States" />
+        <option value="AddPlayers" />
       </list>
     </option>
   </component>
@@ -258,7 +271,7 @@
       <workItem from="1609718261606" duration="4333000" />
       <workItem from="1609751506498" duration="2343000" />
       <workItem from="1609780556927" duration="11568000" />
-      <workItem from="1609843989735" duration="9931000" />
+      <workItem from="1609843989735" duration="23095000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -358,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609794053917</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add random startGame&#10;Add nextPlayer&#10;Switch First/Last Name to single Name">
+      <created>1609854518303</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1609854518303</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +399,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -400,11 +432,12 @@
     <MESSAGE value="Refactor" />
     <MESSAGE value="Add SocketIO" />
     <MESSAGE value="Add remove player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add remove player" />
+    <MESSAGE value="Add random startGame&#10;Add nextPlayer&#10;Switch First/Last Name to single Name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add random startGame&#10;Add nextPlayer&#10;Switch First/Last Name to single Name" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___1_.coverage" NAME="Flask (main.py) (1) Coverage Results" MODIFIED="1609780257846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1609854422433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1609894735353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___SocketIO_.coverage" NAME="Flask (main.py) (SocketIO) Coverage Results" MODIFIED="1609845542356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1609848495742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609730152681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
