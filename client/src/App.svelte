@@ -9,7 +9,7 @@
     import {CLIENT_STATE_STORE, players_store, SERVER_STATE_STORE} from "./stores";
     import Controls from "./routes/components/Controls.svelte";
 
-    const socket = io('ws://localhost:3000');
+    const socket = io('ws://192.168.178.48:3000');
 
     let CLIENT_STATE, SERVER_STATE;
     CLIENT_STATE_STORE.subscribe(value => CLIENT_STATE = value);

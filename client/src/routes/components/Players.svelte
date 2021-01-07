@@ -2,7 +2,7 @@
     import {players_store} from "../../stores.ts";
     import {io} from 'socket.io-client';
 
-    const socket = io('ws://localhost:3000');
+    const socket = io('ws://192.168.178.48:3000');
 
     let players;
     players_store.subscribe(value => players = value);
@@ -30,7 +30,8 @@
         margin: 0
         text-align: left
         list-style: none
-        min-width: 10rem
+        //min-width: 30rem
+        width: 100%
         border-collapse: collapse
 
     th
@@ -46,6 +47,7 @@
 
         td
             padding: .5em 1em
+            text-align: center
 
         span
             font-family: "IBM Plex Mono SemiBold", sans-serif
@@ -68,8 +70,8 @@
             <tr>
                 <th>Name</th>
                 <th>Points</th>
-                <th>UUID</th>
-                <th>State</th>
+<!--                <th>UUID</th>-->
+<!--                <th>State</th>-->
             </tr>
         </thead>
         <tbody>
@@ -77,8 +79,8 @@
                 <tr on:click={removePlayer} id="{uuid}" class:blue={active}>
                     <td>{name}</td>
                     <td><span>{points}</span></td>
-                    <td>{uuid}</td>
-                    <td>{active}</td>
+<!--                    <td>{uuid}</td>-->
+<!--                    <td>{active}</td>-->
                 </tr>
             {/each}
         </tbody>
