@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Switch players ul to table">
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Update layout">
+      <change afterPath="$PROJECT_DIR$/client/src/layouts/_Footer.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/layouts/_NewGame.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/styles/theme.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/routes/components/AddPlayers.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/components/AddPlayers.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/routes/components/Players.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routes/components/Players.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/AddPlayers.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/Controls.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/Game.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Game.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/Players.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Players.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/components/States.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/States.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/stores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/stores.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +35,8 @@
         <option value="States" />
         <option value="AddPlayers" />
         <option value="Controls" />
+        <option value="_NewGame" />
+        <option value="_Footer" />
       </list>
     </option>
   </component>
@@ -43,7 +54,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="flask-tests" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,11 +93,11 @@
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\client\src" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\blueprints" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static\css" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static\favicons" />
-      <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -273,7 +284,10 @@
       <workItem from="1609780556927" duration="11568000" />
       <workItem from="1609843989735" duration="26560000" />
       <workItem from="1609943623947" duration="4070000" />
-      <workItem from="1609979671996" duration="160000" />
+      <workItem from="1609979671996" duration="2911000" />
+      <workItem from="1610004347626" duration="4292000" />
+      <workItem from="1610030209599" duration="6553000" />
+      <workItem from="1610038265995" duration="8629000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -394,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609903059322</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Update layout">
+      <created>1609979848333</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1609979848333</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,11 +472,12 @@
     <MESSAGE value="Add random startGame&#10;Add nextPlayer&#10;Switch First/Last Name to single Name" />
     <MESSAGE value="Add SERVER_STATE / CLIENT_STATE&#10;Add Reset" />
     <MESSAGE value="Switch players ul to table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switch players ul to table" />
+    <MESSAGE value="Update layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update layout" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___1_.coverage" NAME="Flask (main.py) (1) Coverage Results" MODIFIED="1609780257846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1609979709387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1610058487228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___SocketIO_.coverage" NAME="Flask (main.py) (SocketIO) Coverage Results" MODIFIED="1609845542356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1609848495742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609730152681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

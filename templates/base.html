@@ -11,14 +11,23 @@
     {% block head %}{% endblock %}
 
     <script about="initial values">
-        let initialPlayers = {{ players|safe }};
-        let INITIAL_SERVER_STATE = "{{ SERVER_STATE|safe }}";
+        let INITIAL_PLAYERS = {{ PLAYERS|safe }};
+        let INITIAL_SERVER_STATE = '{{ SERVER_STATE|safe }}';
+        let INITIAL_GAMEMODE = '{{ GAMEMODE|safe }}';
     </script>
 </head>
 
 <body>
+<main id="app">
+</main>
 {#    <section class="content">#}
 {#        {% block content %}{% endblock %}#}
 {#    </section>#}
+<footer>
+    <a href="https://valentinrogg.de">
+        Robin Hood - Dart Tracker<br />
+        © {{ copyright_year }} Valentin Rogg
+    </a>
+</footer>
 </body>
 </html>

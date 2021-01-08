@@ -1,13 +1,11 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import Players from "./routes/components/Players.svelte";
-    import AddPlayers from "./routes/components/AddPlayers.svelte";
-    import Game from "./routes/components/Game.svelte";
-    import States from "./routes/components/States.svelte";
+    import Game from "./components/Game.svelte";
+    import States from "./components/States.svelte";
+    import NewGameLayout from "./layouts/_NewGame.svelte";
     import {io} from "socket.io-client";
 
-    import {CLIENT_STATE_STORE, players_store, SERVER_STATE_STORE} from "./stores";
-    import Controls from "./routes/components/Controls.svelte";
+    import {CLIENT_STATE_STORE, GAMEMODE_STORE, PLAYERS_STORE, SERVER_STATE_STORE} from "./stores";
 
     const socket = io('ws://192.168.178.48:3000');
 
@@ -18,40 +16,45 @@
     onMount(() => {
         SERVER_STATE_STORE.set(INITIAL_SERVER_STATE);
         CLIENT_STATE_STORE.set(INITIAL_SERVER_STATE);
-        players_store.set(initialPlayers)
+        PLAYERS_STORE.set(INITIAL_PLAYERS);
+        GAMEMODE_STORE.set(INITIAL_GAMEMODE);
     })
 
     socket.on('SERVER_STATE', data => {
-        SERVER_STATE_STORE.set(data);
-        CLIENT_STATE_STORE.set(data);
+        SERVER_STATE_STORE.set(JSON.parse(data));
+        CLIENT_STATE_STORE.set(JSON.parse(data));
+    })
+
+    socket.on('players', data => {
+        PLAYERS_STORE.set(JSON.parse(data))
+    })
+
+    socket.on('gamemode', data => {
+        GAMEMODE_STORE.set(JSON.parse(data))
     })
 </script>
 
 <style lang="sass">
-    main
-        font-family: "IBM Plex Sans", sans-serif
+    robin
+        display: block
+        font-family: 'Rubik', sans-serif
         font-weight: 400
         text-align: center
         font-variant-numeric: normal
-        height: calc(100vh - 6rem)
-        padding: 3rem
-        display: grid
-        grid-template-rows: auto max-content
+        padding: 5rem 0 5rem
 </style>
 
-<main>
+<robin>
     <States/>
 
 
-    {#if CLIENT_STATE === 'New Game'}
-        <Players/>
+    {#if SERVER_STATE === 'New Game'}
+        <NewGameLayout/>
     {/if}
-    {#if CLIENT_STATE === 'Add Players'}
-        <AddPlayers/>
-    {/if}
+    <!--{#if CLIENT_STATE === 'Add Players'}-->
+<!--    {/if}-->
     {#if SERVER_STATE === 'Started'}
         <Game/>
     {/if}
 
-    <Controls/>
-</main>
+</robin>

@@ -1,21 +1,21 @@
 <script>
-    import {players_store} from "../../stores.ts";
+    import {PLAYERS_STORE} from "../stores.ts";
     import {io} from 'socket.io-client';
 
     const socket = io('ws://192.168.178.48:3000');
 
     let players;
-    players_store.subscribe(value => players = value);
+    PLAYERS_STORE.subscribe(value => players = value);
 
     let name;
 
     socket.on('players', data => {
-        players_store.set(JSON.parse(data))
+        PLAYERS_STORE.set(JSON.parse(data))
     })
 
     function removePlayer(event) {
         console.log(event)
-        socket.emit('removePlayer', players.find(({uuid}) => uuid === event.target.parentNode.id));
+        socket.emit('removePlayer', JSON.stringify(players.find(({uuid}) => uuid === event.target.parentNode.id)));
     }
 </script>
 

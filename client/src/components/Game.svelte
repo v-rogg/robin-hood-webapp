@@ -1,10 +1,10 @@
 <script lang="ts">
-    import {players_store} from "../../stores";
+    import {PLAYERS_STORE} from "../stores";
     import Players from "./Players.svelte";
 
     let players;
 
-    players_store.subscribe(value => players = value);
+    PLAYERS_STORE.subscribe(value => players = value);
 </script>
 
 <style lang="sass">
