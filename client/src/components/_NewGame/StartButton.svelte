@@ -11,8 +11,15 @@
         cursor: pointer
         width: max-content
         margin: 80px 3rem 0 auto
-        display: block
+        display: flex
+        justify-content: right
+        align-items: center
         position: relative
+
+        span
+            margin-right: 1rem
+            font-size: 1.5rem
+            font-weight: 300
 
         svg
             position: relative
@@ -22,6 +29,10 @@
             fill: $black
 
         &:hover
+
+            span
+                color: $green
+
             .start-game--outer-circle
                 fill: $green
             .start-game--inner-circle
@@ -29,6 +40,9 @@
 </style>
 
 <div class="start-game" on:click={startGame}>
+    <span>
+        Start Game
+    </span>
     <svg x="0px" y="0px" viewBox="0 0 70 70" width="70px" height="70px">
         <path class="start-game--outer-circle" d="M35,0C15.67,0,0,15.67,0,35s15.67,35,35,35s35-15.67,35-35S54.33,0,35,0z M35,62
             C20.09,62,8,49.91,8,35S20.09,8,35,8s27,12.09,27,27S49.91,62,35,62z"/>

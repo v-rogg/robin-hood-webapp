@@ -30,7 +30,6 @@
 
     li
         height: 80px
-        font-family: 'Rubik', sans-serif
         font-size: 1.5rem
         font-weight: 500
         display: flex
@@ -84,7 +83,6 @@
             line-height: 0
 
     .add
-        font-family: 'Rubik', sans-serif
         font-weight: 300
         background: $black !important
 
@@ -100,7 +98,6 @@
             height: 1.75rem
 
         input
-            font-family: 'Rubik', sans-serif
             background: none
             border: none
             width: 95%
@@ -111,7 +108,6 @@
 
             &::placeholder
                 color: white
-                font-family: 'Rubik', sans-serif
                 font-weight: 100
 </style>
 

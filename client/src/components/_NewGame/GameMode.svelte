@@ -23,10 +23,7 @@
             display: flex
             align-items: center
             justify-content: center
-            //padding: 1.75rem 0 2rem
             margin: 0
-            //font-family: "Pulp Display", sans-serif
-            font-family: 'Rubik', sans-serif
             font-size: 1.5rem
             font-weight: 500
             border-bottom: 1px solid $grey

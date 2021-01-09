@@ -3,6 +3,7 @@
     import Game from "./components/Game.svelte";
     import States from "./components/States.svelte";
     import NewGameLayout from "./layouts/_NewGame.svelte";
+    import GameLayout from "./layouts/_Game.svelte";
     import {io} from "socket.io-client";
 
     import {CLIENT_STATE_STORE, GAMEMODE_STORE, PLAYERS_STORE, SERVER_STATE_STORE} from "./stores";
@@ -37,7 +38,6 @@
 <style lang="sass">
     robin
         display: block
-        font-family: 'Rubik', sans-serif
         font-weight: 400
         text-align: center
         font-variant-numeric: normal
@@ -54,7 +54,7 @@
     <!--{#if CLIENT_STATE === 'Add Players'}-->
 <!--    {/if}-->
     {#if SERVER_STATE === 'Started'}
-        <Game/>
+        <GameLayout/>
     {/if}
 
 </robin>

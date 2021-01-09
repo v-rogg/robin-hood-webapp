@@ -17,7 +17,6 @@
 
 <style lang="sass">
     h1, h2
-        font-family: 'Rubik', sans-serif
         margin: 0
         padding: 0
 
