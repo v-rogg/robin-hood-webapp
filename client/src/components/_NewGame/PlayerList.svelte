@@ -112,8 +112,8 @@
 </style>
 
 <ul id="playerlist">
-    {#each players as {name, uuid, active, points}, nr}
-        <li on:click={removePlayer} id="{uuid}" class:blue={active}>
+    {#each players as {name, uuid, points}, nr}
+        <li on:click={removePlayer} id="{uuid}">
             <span>{nr + 1}</span>
             <div>
                 {name}

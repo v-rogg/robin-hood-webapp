@@ -14,8 +14,8 @@
     .states
         position: fixed
         top: 1rem
-        left: 1.5rem
-        right: 1.5rem
+        left: 3rem
+        right: 3rem
         display: flex
         justify-content: space-between
         //gap: 3rem

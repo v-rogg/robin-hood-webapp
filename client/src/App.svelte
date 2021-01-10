@@ -3,6 +3,7 @@
     import States from "./components/States.svelte";
     import NewGameLayout from "./layouts/_NewGame.svelte";
     import GameLayout from "./layouts/_Game.svelte";
+    import EndGameLayout from "./layouts/_EndGame.svelte";
     import {io} from "socket.io-client";
 
     import {
@@ -63,4 +64,7 @@
         <GameLayout/>
     {/if}
 
+    {#if SERVER_STATE === 'End Game'}
+        <EndGameLayout/>
+    {/if}
 </robin>
