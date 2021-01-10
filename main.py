@@ -11,16 +11,24 @@ api = Blueprint('api', __name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
+
+# -------------------------------
+# Init
+# -------------------------------
+
 PLAYERS = []
 SERVER_STATE = 'New Game'
 GAMEMODE = '501'
 DARTS = [0, 0, 0]
 DTObj = open('static/darts.json')
 DART_TARGETS = json.load(DTObj)
-
 activePlayer = -1
 copyright_year = datetime.datetime.now().year
 
+
+# -------------------------------
+# APP Routes
+# -------------------------------
 
 @app.route('/')
 def application():
@@ -36,6 +44,38 @@ def application():
 @client.route('/<path:path>')
 def base(path):
     return send_from_directory('client/public', path)
+
+
+# -------------------------------
+# API Routes
+# -------------------------------
+
+def darts_over():
+    global PLAYERS
+    global activePlayer
+    PLAYERS[activePlayer]['turns'].append([0, 0, 0])
+    reset_and_send_darts()
+    PLAYERS[activePlayer]['active'] = False
+    activePlayer += 1
+    if activePlayer >= len(PLAYERS):
+        activePlayer = 0
+    PLAYERS[activePlayer]['active'] = True
+    send_players()
+
+
+def get_points(player):
+    return player['points']
+
+
+def end_game():
+    global SERVER_STATE
+    global PLAYERS
+    PLAYERS.sort(key=get_points)
+    for player in PLAYERS:
+        player['active'] = False
+    send_players()
+    SERVER_STATE = 'End Game'
+    send_server_state()
 
 
 @api.route('/start', methods=['POST'])
@@ -106,34 +146,6 @@ def confirm_turn():
     return Response(status=200)
 
 
-def darts_over():
-    global PLAYERS
-    global activePlayer
-    PLAYERS[activePlayer]['turns'].append([0, 0, 0])
-    reset_and_send_darts()
-    PLAYERS[activePlayer]['active'] = False
-    activePlayer += 1
-    if activePlayer >= len(PLAYERS):
-        activePlayer = 0
-    PLAYERS[activePlayer]['active'] = True
-    send_players()
-
-
-def get_points(player):
-    return player['points']
-
-
-def end_game():
-    global SERVER_STATE
-    global PLAYERS
-    PLAYERS.sort(key=get_points)
-    for player in PLAYERS:
-        player['active'] = False
-    send_players()
-    SERVER_STATE = 'End Game'
-    send_server_state()
-
-
 @api.route('/reset', methods=['POST'])
 def reset():
     global PLAYERS
@@ -174,9 +186,9 @@ def next_leg():
     return Response(status=200)
 
 
-app.register_blueprint(client, url_prefix='/app')
-app.register_blueprint(api, url_prefix='/api')
-
+# -------------------------------
+# SocketIO Routes
+# -------------------------------
 
 def send_players():
     print('Players sent: ' + str(json.dumps(PLAYERS)))
@@ -232,6 +244,9 @@ def set_darts(data):
     socketio.emit('darts', json.dumps(DARTS))
     print('Darts sent: ' + str(json.dumps(DARTS)))
 
+
+app.register_blueprint(api, url_prefix='/api')
+app.register_blueprint(client, url_prefix='/app')
 
 if __name__ == '__main__':
     socketio.run(app, debug=True, port=3000, host='0.0.0.0')

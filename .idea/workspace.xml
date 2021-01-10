@@ -4,15 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Add favicons&#10;Add End Game Layout&#10;Add Win condition&#10;Add Stats">
-      <change afterPath="$PROJECT_DIR$/client/src/components/_Game/Dartboard.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/_Game/Player.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/_Game/Stats.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/stores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/stores.ts" afterDir="false" />
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Refactor _Gaem">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +296,7 @@
       <workItem from="1610142076948" duration="595000" />
       <workItem from="1610197492352" duration="3933000" />
       <workItem from="1610208037741" duration="22890000" />
-      <workItem from="1610274910790" duration="26139000" />
+      <workItem from="1610274910790" duration="26417000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -459,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610308169556</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Refactor _Ga">
+      <created>1610318953860</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610318953860</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +521,8 @@
     <MESSAGE value="Add Game Layout" />
     <MESSAGE value="Add synced darts&#10;Add dart targets&#10;Add stats" />
     <MESSAGE value="Add favicons&#10;Add End Game Layout&#10;Add Win condition&#10;Add Stats" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add favicons&#10;Add End Game Layout&#10;Add Win condition&#10;Add Stats" />
+    <MESSAGE value="Refactor _Gaem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor _Gaem" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___1_.coverage" NAME="Flask (main.py) (1) Coverage Results" MODIFIED="1609780257846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
