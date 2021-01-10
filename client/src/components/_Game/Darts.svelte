@@ -44,6 +44,18 @@
         color: $red
     .grey
         color: $grey
+
+    @media (max-width: 520px)
+        form
+            select
+                font-size: 3.25rem
+                width: clamp(100px, 25vw, 150px)
+
+    @media (max-width: 420px)
+        form
+            select
+                font-size: 2.825rem
+
 </style>
 
 <form id="darts">

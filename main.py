@@ -8,7 +8,7 @@ import datetime
 app = Flask(__name__)
 client = Blueprint('client', __name__, template_folder='templates')
 api = Blueprint('api', __name__, template_folder='templates')
-app.config['SECRET_KEY'] = 'secret!'
+app.config['SECRET_KEY'] = 'notsosecret!'
 socketio = SocketIO(app)
 
 
