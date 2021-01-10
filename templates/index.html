@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 
 {% block head %}
+    <script about="initial values">
+        let INITIAL_PLAYERS = {{ PLAYERS|safe }};
+        let INITIAL_SERVER_STATE = '{{ SERVER_STATE|safe }}';
+        let INITIAL_GAMEMODE = '{{ GAMEMODE|safe }}';
+        let INITIAL_DARTS = {{ DARTS|safe }};
+        let INITIAL_DART_TARGETS = {{ DART_TARGETS|safe }};
+    </script>
 	<link rel='stylesheet' href='/app/build/bundle.css'>
-
 	<script defer src='/app/build/bundle.js'></script>
 {% endblock %}

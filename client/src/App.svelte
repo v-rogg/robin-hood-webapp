@@ -1,12 +1,17 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import Game from "./components/Game.svelte";
     import States from "./components/States.svelte";
     import NewGameLayout from "./layouts/_NewGame.svelte";
     import GameLayout from "./layouts/_Game.svelte";
     import {io} from "socket.io-client";
 
-    import {CLIENT_STATE_STORE, GAMEMODE_STORE, PLAYERS_STORE, SERVER_STATE_STORE} from "./stores";
+    import {
+        CLIENT_STATE_STORE,
+        DARTS_STORE,
+        GAMEMODE_STORE,
+        PLAYERS_STORE,
+        SERVER_STATE_STORE
+    } from "./stores";
 
     const socket = io('ws://192.168.178.48:3000');
 
@@ -19,6 +24,7 @@
         CLIENT_STATE_STORE.set(INITIAL_SERVER_STATE);
         PLAYERS_STORE.set(INITIAL_PLAYERS);
         GAMEMODE_STORE.set(INITIAL_GAMEMODE);
+        DARTS_STORE.set(INITIAL_DARTS);
     })
 
     socket.on('SERVER_STATE', data => {

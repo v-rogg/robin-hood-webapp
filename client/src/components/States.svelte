@@ -30,10 +30,10 @@
 
 <div class="states">
     <div>
-        CS: <span>{CLIENT_STATE}</span>
+<!--        CS: <span>{CLIENT_STATE}</span>-->
     </div>
     <div>
-        SS: <span>{SERVER_STATE}</span>
+<!--        SS: <span>{SERVER_STATE}</span>-->
     </div>
     <div on:click={reset} id="reset">
         Reset
