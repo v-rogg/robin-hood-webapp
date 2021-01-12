@@ -9,8 +9,11 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/client/public/build" />
     </content>
-    <orderEntry type="jdk" jdkName="3.8 @ Ubuntu" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (01_frontend)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PackageRequirementsSettings">
+    <option name="versionSpecifier" value="Don't specify version" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />

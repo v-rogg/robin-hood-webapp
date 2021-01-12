@@ -4,10 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Refactor main.py">
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Fix mobile darts form layout">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/favicons/robin.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Robin Hood.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Robin Hood.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +70,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="1m3ZWII05x1kcF3Wk8cJkB5xt2Z" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -84,10 +89,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../02_sensor" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="ts.external.directory.path" value="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -169,9 +174,9 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="FLASK_ENV" value="&quot;development&quot;" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -298,7 +303,13 @@
       <workItem from="1610142076948" duration="595000" />
       <workItem from="1610197492352" duration="3933000" />
       <workItem from="1610208037741" duration="22890000" />
-      <workItem from="1610274910790" duration="26952000" />
+      <workItem from="1610274910790" duration="27091000" />
+      <workItem from="1610320650323" duration="9000" />
+      <workItem from="1610359984780" duration="123000" />
+      <workItem from="1610372218442" duration="166000" />
+      <workItem from="1610450850600" duration="1027000" />
+      <workItem from="1610480355150" duration="266000" />
+      <workItem from="1610482307875" duration="1197000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -468,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610319302425</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fix mobile darts form layout">
+      <created>1610319829003</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610319829003</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,17 +550,11 @@
     <MESSAGE value="Add favicons&#10;Add End Game Layout&#10;Add Win condition&#10;Add Stats" />
     <MESSAGE value="Refactor _Gaem" />
     <MESSAGE value="Refactor main.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor main.py" />
+    <MESSAGE value="Fix mobile darts form layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix mobile darts form layout" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___1_.coverage" NAME="Flask (main.py) (1) Coverage Results" MODIFIED="1609780257846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1610302480493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___SocketIO_.coverage" NAME="Flask (main.py) (SocketIO) Coverage Results" MODIFIED="1609845542356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1609848495742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609730152681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/01_frontend$01_frontend.coverage" NAME="01_frontend Coverage Results" MODIFIED="1608728037687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__SocketIO.coverage" NAME="Flask  SocketIO Coverage Results" MODIFIED="1609845492801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_svelte_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609500795562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/01_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1608733595229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1610482698438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1610372291754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
