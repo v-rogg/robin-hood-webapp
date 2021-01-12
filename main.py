@@ -179,10 +179,10 @@ def next_leg():
     random.shuffle(PLAYERS)
     activePlayer = 0
     PLAYERS[activePlayer]['active'] = True
-    reset_and_send_darts()
     send_players()
     SERVER_STATE = 'Started'
     send_server_state()
+    reset_and_send_darts()
     return Response(status=200)
 
 

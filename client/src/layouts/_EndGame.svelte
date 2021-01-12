@@ -11,7 +11,7 @@
 
     let confettiCanvas = document.getElementById('confetti');
 
-    const confettiObj = canvasConfetti.create(confettiCanvas, {
+    const confettiObj = canvasConfetti.create(<HTMLCanvasElement>confettiCanvas, {
         resize: true,
         useWorker: true
     });
