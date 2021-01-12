@@ -8,7 +8,6 @@
 
     import {
         CLIENT_STATE_STORE,
-        // DARTS_STORE,
         GAMEMODE_STORE,
         PLAYERS_STORE,
         SERVER_STATE_STORE
@@ -25,7 +24,6 @@
         CLIENT_STATE_STORE.set(INITIAL_SERVER_STATE);
         PLAYERS_STORE.set(INITIAL_PLAYERS);
         GAMEMODE_STORE.set(INITIAL_GAMEMODE);
-        // DARTS_STORE.set(INITIAL_DARTS);
     })
 
     socket.on('SERVER_STATE', data => {
