@@ -37,7 +37,7 @@
             font-size: 1.125rem
 
     .beige
-        color: $beige
+        color: darken($beige, 15)
     .green
         color: $green
     .red

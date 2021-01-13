@@ -21,7 +21,9 @@ SERVER_STATE = 'New Game'
 GAMEMODE = '501'
 DARTS = [0, 0, 0]
 DTObj = open('static/darts.json')
+DTCOObj = open('static/dart-checkout.json')
 DART_TARGETS = json.load(DTObj)
+DART_CHECKOUT = json.load(DTCOObj)
 activePlayer = -1
 copyright_year = datetime.datetime.now().year
 
@@ -38,6 +40,7 @@ def application():
                            GAMEMODE=GAMEMODE,
                            DARTS=DARTS,
                            DART_TARGETS=DART_TARGETS,
+                           DART_CHECKOUT=DART_CHECKOUT,
                            copyright_year=copyright_year)
 
 
