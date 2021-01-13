@@ -3,6 +3,7 @@
     export let d0;
     export let d1;
     export let d2;
+    export let suggestion;
 </script>
 
 <style lang="sass">
@@ -13,6 +14,9 @@
         display: flex
         justify-content: center
         gap: 1rem
+
+        >div
+            position: relative
 
         select
             font-size: 4rem
@@ -26,6 +30,7 @@
             -moz-appearance: none
             text-indent: 1px
             text-overflow: ''
+            cursor: pointer
 
             option
                 font-size: 1rem
@@ -35,6 +40,15 @@
             height: 2rem
             margin-top: .5rem
             font-size: 1.125rem
+
+        .suggestion
+            position: absolute
+            font-size: 1.5rem
+            //color: $blue
+            color: $orange
+            top: 0
+            right: 0
+            pointer-events: none
 
     .beige
         color: darken($beige, 15)
@@ -70,6 +84,11 @@
                 <span>{DART_TARGETS[d0].value}</span>
             {/if}
         </div>
+        {#if suggestion[0]}
+            <div class="suggestion">
+                {suggestion[0]}
+            </div>
+        {/if}
     </div>
     <div>
         <select form="darts" bind:value={d1} class={DART_TARGETS[d1].color}>
@@ -82,6 +101,11 @@
                 <span>{DART_TARGETS[d1].value}</span>
             {/if}
         </div>
+        {#if suggestion[1]}
+            <div class="suggestion">
+                {suggestion[1]}
+            </div>
+        {/if}
     </div>
     <div>
         <select form="darts" bind:value={d2} class={DART_TARGETS[d2].color}>
@@ -94,6 +118,11 @@
                 <span>{DART_TARGETS[d2].value}</span>
             {/if}
         </div>
+        {#if suggestion[2]}
+            <div class="suggestion">
+                {suggestion[2]}
+            </div>
+        {/if}
     </div>
     <button type="submit" hidden></button>
 </form>

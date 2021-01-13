@@ -9,7 +9,8 @@
 
     const socket = io('ws://192.168.178.48:3000');
 
-    let DART_TARGETS = INITIAL_DART_TARGETS;
+    const DART_TARGETS = INITIAL_DART_TARGETS;
+    const DART_CHECKOUT = INITIAL_DART_CHECKOUT;
 
     onMount(() => {
         [d0, d1, d2] = INITIAL_DARTS;
@@ -28,7 +29,7 @@
         return DART_TARGETS[d0].value + DART_TARGETS[d1].value + DART_TARGETS[d2].value
     }
 
-    $: points = getPoints(d0, d1, d2)
+    $: points = getPoints(d0, d1, d2);
 
     socket.on('darts', data => {
         lastReceivedDarts = [d0, d1, d2];
@@ -40,7 +41,7 @@
     })
 
     let players;
-    PLAYERS_STORE.subscribe(value => players = value)
+    PLAYERS_STORE.subscribe(value => players = value);
 
     function getCurrentPlayer(players) {
         let currentPlayer = {
@@ -59,11 +60,37 @@
         return currentPlayer;
     }
 
-    $: currentPlayer = getCurrentPlayer(players)
+    $: currentPlayer = getCurrentPlayer(players);
+
+
+    function getSuggestion(points, [d0, d1, d2]) {
+        let throwsLeft = 3;
+        [d0, d1, d2].forEach(d => {
+            if (DART_TARGETS[d].name !== "") throwsLeft--;
+        })
+        const pointsLeft = currentPlayer.points - points;
+        const DC = DART_CHECKOUT.find(e => e.left === pointsLeft && e.darts.length <= throwsLeft);
+        if (DC) {
+            const simpleSug = [...DC.darts];
+            let complexSug = [];
+            [d0, d1, d2].forEach(d => {
+                if (DART_TARGETS[d].name !== "") {
+                    complexSug.push(null)
+                } else {
+                    complexSug.push(simpleSug.shift())
+                }
+            })
+            return complexSug;
+        } else {
+            return [];
+        }
+    }
+
+    $: suggestion = getSuggestion(points, [d0, d1, d2]);
 
 </script>
 
 <Dartboard/>
-<Darts bind:d0={d0} bind:d1={d1} bind:d2={d2} {DART_TARGETS} />
+<Darts bind:d0={d0} bind:d1={d1} bind:d2={d2} {DART_TARGETS} {suggestion}/>
 <Player/>
-<Stats {currentPlayer} {points} {d0} {d1} {d2} {players} {DART_TARGETS} />
+<Stats {currentPlayer} {points} {d0} {d1} {d2} {players} {DART_TARGETS}/>
