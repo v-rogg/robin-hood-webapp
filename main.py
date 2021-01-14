@@ -11,7 +11,6 @@ api = Blueprint('api', __name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'notsosecret!'
 socketio = SocketIO(app)
 
-
 # -------------------------------
 # Init
 # -------------------------------
@@ -104,15 +103,11 @@ def start_game():
     return Response(status=200)
 
 
-@api.route('/confirm-turn', methods=['POST'])
-def confirm_turn():
+def confirm_new_points(new_points):
     global activePlayer
-    global DARTS
     global SERVER_STATE
-    new_points = PLAYERS[activePlayer]['points'] \
-                 - DART_TARGETS[DARTS[0]]['value'] \
-                 - DART_TARGETS[DARTS[1]]['value'] \
-                 - DART_TARGETS[DARTS[2]]['value']
+    global PLAYERS
+
     if new_points > 0:
         # Normal
         PLAYERS[activePlayer]['points'] = new_points
@@ -146,7 +141,29 @@ def confirm_turn():
         # Over
         darts_over()
 
-    return Response(status=200)
+
+@api.route('/confirm-turn', methods=['POST'])
+def confirm_turn():
+    global DARTS
+    global PLAYERS
+    global activePlayer
+
+    new_points = PLAYERS[activePlayer]['points'] \
+                 - DART_TARGETS[DARTS[0]]['value'] \
+                 - DART_TARGETS[DARTS[1]]['value'] \
+                 - DART_TARGETS[DARTS[2]]['value']
+
+    if new_points > 0:
+        if not (DART_TARGETS[DARTS[0]]['name'] == "" or DART_TARGETS[DARTS[1]]['name'] == ""
+                or DART_TARGETS[DARTS[2]]['name'] == ""):
+            confirm_new_points(new_points=new_points)
+            return Response(status=200)
+        else:
+            return "No enough darts confirmed", 400
+
+    else:
+        confirm_new_points(new_points=new_points)
+        return Response(status=200)
 
 
 @api.route('/reset', methods=['POST'])

@@ -23,6 +23,10 @@
     let lastReceivedDarts = [0, 0, 0];
 
     function getPoints(d0, d1, d2) {
+        const selectNodes = document.getElementsByTagName('select');
+        for (let node of selectNodes) {
+            node.classList.remove('highlight--error');
+        }
         if ((d0 != lastReceivedDarts[0] || d1 != lastReceivedDarts[1] || d2 != lastReceivedDarts[2]) && ready) {
             socket.emit('setDarts', JSON.stringify([d0, d1, d2]))
         }

@@ -4,11 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Add DART_CHECKOUT to SSR&#10;Fix beige color accessibility">
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Remove deprecated components">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Stats.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Stats.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/theme.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/theme.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +313,8 @@
       <workItem from="1610489097772" duration="1090000" />
       <workItem from="1610534350448" duration="6000" />
       <workItem from="1610563192907" duration="237000" />
-      <workItem from="1610570597216" duration="7952000" />
+      <workItem from="1610570597216" duration="12230000" />
+      <workItem from="1610582962592" duration="2708000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -524,7 +526,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610575482208</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Add suggestions">
+      <created>1610578666889</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1610578666889</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Remove deprecated components">
+      <created>1610578709714</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1610578709714</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,8 +582,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Test hybrid approach" />
-    <MESSAGE value="Add hybrid svelte with jinja rendering" />
     <MESSAGE value="Test vue based approach" />
     <MESSAGE value="Add start game redirect" />
     <MESSAGE value="Add store&#10;Add two page svelte app" />
@@ -591,10 +605,12 @@
     <MESSAGE value="Fixed next-leg bug" />
     <MESSAGE value="Add dart-checkout.json" />
     <MESSAGE value="Add DART_CHECKOUT to SSR&#10;Fix beige color accessibility" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add DART_CHECKOUT to SSR&#10;Fix beige color accessibility" />
+    <MESSAGE value="Add suggestions" />
+    <MESSAGE value="Remove deprecated components" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove deprecated components" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1610574496375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1610584602593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1610372291754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

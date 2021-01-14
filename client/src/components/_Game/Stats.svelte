@@ -7,7 +7,7 @@
     export let d1;
     export let d2;
 
-    function getPointsColor(currentPlayer, points, d0, d1, d2, DART_TARGETS) {
+    function getPointsColor(currentPlayer, points, d0, d1, d2) {
         let win = false
         if (currentPlayer.points - points === 0) {
             let check = [d0, d1, d2]
@@ -27,7 +27,37 @@
 
     }
 
-    $: pointsColor = getPointsColor(currentPlayer, points, d0, d1, d2, DART_TARGETS)
+    $: pointsColor = getPointsColor(currentPlayer, points, d0, d1, d2)
+
+    function getConfirmEnabled(d0, d1, d2) {
+        if (currentPlayer.points - points > 0) {
+            return !(DART_TARGETS[d0].name === "" || DART_TARGETS[d1].name === "" || DART_TARGETS[d2].name === "");
+        } else {
+            return true
+        }
+    }
+
+    $: confirmEnabled = getConfirmEnabled(d0, d1, d2)
+
+    function highlightForms() {
+        const selectNodes = document.getElementsByTagName('select');
+        console.log(selectNodes);
+        for (let node of selectNodes) {
+            if (node.id === "d0") {
+                if (DART_TARGETS[d0].name === "") {
+                    node.classList.add('highlight--error');
+                }
+            } else if (node.id === "d1") {
+                if (DART_TARGETS[d1].name === "") {
+                    node.classList.add('highlight--error');
+                }
+            } else if (node.id === "d2") {
+                if (DART_TARGETS[d2].name === "") {
+                    node.classList.add('highlight--error');
+                }
+            }
+        }
+    }
 </script>
 
 <style lang="sass">
@@ -127,7 +157,7 @@
             {/if}
         </ul>
     </div>
-    <button id="points" on:click={() => { fetch('/api/confirm-turn', {method: 'POST'}) }}>
+    <button id="points" on:click={() => { confirmEnabled ? fetch('/api/confirm-turn', {method: 'POST'}) : highlightForms() }}>
         <div id="points__box">
             <div id="points__box-small">
                 <div id="points__total">
@@ -145,7 +175,11 @@
                 { currentPlayer.points - points }
             </div>
             <div id="points__description">
-                Click to Confirm
+                {#if confirmEnabled}
+                    Click to Confirm
+                {:else}
+                    <br/>
+                {/if}
             </div>
         </div>
     </button>

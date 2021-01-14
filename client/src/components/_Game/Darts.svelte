@@ -22,6 +22,7 @@
             font-size: 4rem
             font-weight: 300
             width: 150px
+            //border: 1px solid transparent
             border: none
             border-bottom: 1px solid black
             outline: none
@@ -31,10 +32,13 @@
             text-indent: 1px
             text-overflow: ''
             cursor: pointer
+            background: transparent
+            transition: border ease 100ms, background ease 100ms
 
             option
                 font-size: 1rem
                 color: black
+                background: white
 
         .label
             height: 2rem
@@ -46,8 +50,8 @@
             font-size: 1.5rem
             //color: $blue
             color: $orange
-            top: 0
-            right: 0
+            top: .25rem
+            right: .5rem
             pointer-events: none
 
     .beige
@@ -58,6 +62,10 @@
         color: $red
     .grey
         color: $grey
+
+    .highlight--error
+        border-bottom: 1px solid $red
+        background: transparentize($red, .95)
 
     @media (max-width: 520px)
         form
@@ -74,7 +82,7 @@
 
 <form id="darts">
     <div>
-        <select form="darts" bind:value={d0} class={DART_TARGETS[d0].color}>
+        <select id="d0" form="darts" bind:value={d0} class={DART_TARGETS[d0].color}>
             {#each DART_TARGETS as {name}, id}
                 <option value={id}>{name}</option>
             {/each}
@@ -91,7 +99,7 @@
         {/if}
     </div>
     <div>
-        <select form="darts" bind:value={d1} class={DART_TARGETS[d1].color}>
+        <select id="d1" form="darts" bind:value={d1} class={DART_TARGETS[d1].color}>
             {#each DART_TARGETS as {name}, id}
                 <option value={id}>{name}</option>
             {/each}
@@ -108,7 +116,7 @@
         {/if}
     </div>
     <div>
-        <select form="darts" bind:value={d2} class={DART_TARGETS[d2].color}>
+        <select id="d2" form="darts" bind:value={d2} class={DART_TARGETS[d2].color}>
             {#each DART_TARGETS as {name}, id}
                 <option value={id}>{name}</option>
             {/each}
