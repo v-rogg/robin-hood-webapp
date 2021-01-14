@@ -275,6 +275,12 @@ def set_darts(data):
         print('Darts sent: ' + str(json.dumps(DARTS)))
 
 
+@socketio.on('sensorDarts')
+def sensor_darts(data):
+    socketio.emit('sensorDarts', data)
+    # print('Sensor Darts received: ' + str(data))
+
+
 app.register_blueprint(api, url_prefix='/api')
 app.register_blueprint(client, url_prefix='/app')
 

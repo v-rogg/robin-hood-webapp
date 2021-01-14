@@ -74,6 +74,7 @@
         })
         const pointsLeft = currentPlayer.points - points;
         const DC = DART_CHECKOUT.find(e => e.left === pointsLeft && e.darts.length <= throwsLeft);
+        console.log(DC);
         if (DC) {
             const simpleSug = [...DC.darts];
             let complexSug = [];
