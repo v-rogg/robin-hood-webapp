@@ -12,11 +12,13 @@
     }
 
     function addPlayer() {
-        let user = {
-            name: name,
+        if (name != "") {
+            let user = {
+                name: name,
+            }
+            name = "";
+            socket.emit('addPlayer', JSON.stringify(user));
         }
-        name = null;
-        socket.emit('addPlayer', JSON.stringify(user));
     }
 </script>
 
@@ -123,7 +125,11 @@
     <li class="add" on:click={() => {document.getElementById('new-player-input').focus()}}>
         <span>+</span>
         <form on:submit|preventDefault={addPlayer}>
-            <input type="text" placeholder="New player" id="new-player-input" bind:value={name}>
+            <input type="text"
+                   placeholder="New player"
+                   id="new-player-input"
+                   pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]+"
+                   bind:value={name}>
             <button type="submit" hidden></button>
         </form>
     </li>

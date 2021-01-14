@@ -4,6 +4,7 @@ import random
 import json
 import uuid
 import datetime
+import re
 
 app = Flask(__name__)
 client = Blueprint('client', __name__, template_folder='templates')
@@ -80,29 +81,6 @@ def end_game():
     send_server_state()
 
 
-@api.route('/start', methods=['POST'])
-def start_game():
-    global activePlayer
-    global SERVER_STATE
-    if len(PLAYERS) == 0:
-        return Response(status=400)
-    SERVER_STATE = 'Started'
-    random.shuffle(PLAYERS)
-    activePlayer = 0
-    PLAYERS[activePlayer]['active'] = True
-
-    for player in PLAYERS:
-        if GAMEMODE == '501':
-            player['points'] = 501
-        elif GAMEMODE == '301':
-            player['points'] = 301
-
-    reset_and_send_darts()
-    send_players()
-    send_server_state()
-    return Response(status=200)
-
-
 def confirm_new_points(new_points):
     global activePlayer
     global SERVER_STATE
@@ -140,6 +118,29 @@ def confirm_new_points(new_points):
     else:
         # Over
         darts_over()
+
+
+@api.route('/start', methods=['POST'])
+def start_game():
+    global activePlayer
+    global SERVER_STATE
+    if len(PLAYERS) == 0:
+        return Response(status=400)
+    SERVER_STATE = 'Started'
+    random.shuffle(PLAYERS)
+    activePlayer = 0
+    PLAYERS[activePlayer]['active'] = True
+
+    for player in PLAYERS:
+        if GAMEMODE == '501':
+            player['points'] = 501
+        elif GAMEMODE == '301':
+            player['points'] = 301
+
+    reset_and_send_darts()
+    send_players()
+    send_server_state()
+    return Response(status=200)
 
 
 @api.route('/confirm-turn', methods=['POST'])
@@ -229,26 +230,32 @@ def reset_and_send_darts():
 
 @socketio.on('addPlayer')
 def add_player(data):
-    print('Player received to ADD: ' + str(data))
-    entry = {'uuid': str(uuid.uuid4()),
-             'name': json.loads(data)['name'],
-             # 'points': 501,
-             'active': False,
-             'turns': []}
-    PLAYERS.append(entry)
-    print('Player added: ' + str(json.dumps(entry)))
-    send_players()
+    ldata = json.loads(data)
+    if ldata['name']:
+        if not ldata['name'] == "" and re.search("[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]+", ldata["name"]):
+            print('Player received to ADD: ' + str(ldata))
+            entry = {'uuid': str(uuid.uuid4()),
+                     'name': ldata['name'],
+                     # 'points': 501,
+                     'active': False,
+                     'turns': []}
+            PLAYERS.append(entry)
+            print('Player added: ' + str(json.dumps(entry)))
+            send_players()
 
 
 @socketio.on('removePlayer')
 def remove_player(data):
-    print('Player received to REMOVE: ' + str(data))
-    PLAYERS.remove(json.loads(data))
-    send_players()
+    ldata = json.loads(data)
+    if ldata['uuid'] and ldata['name'] and ldata['active'] and ldata['turns']:
+        print('Player received to REMOVE: ' + str(ldata))
+        PLAYERS.remove(ldata)
+        send_players()
 
 
 @socketio.on('setGameMode')
 def set_game_mode(data):
+    # TODO: Check for valid gamemode
     print('Game Mode received: ' + str(data))
     global GAMEMODE
     GAMEMODE = json.loads(data)['gamemode']
@@ -258,11 +265,14 @@ def set_game_mode(data):
 
 @socketio.on('setDarts')
 def set_darts(data):
-    print('Darts received: ' + str(data))
-    global DARTS
-    DARTS = json.loads(data)
-    socketio.emit('darts', json.dumps(DARTS))
-    print('Darts sent: ' + str(json.dumps(DARTS)))
+    ldata = json.loads(data)
+    # TODO: Check for valid darts
+    if len(ldata) == 3 and type(ldata[0]) is int and type(ldata[1]) is int and type(ldata[2]) is int :
+        print('Darts received: ' + str(ldata))
+        global DARTS
+        DARTS = ldata
+        socketio.emit('darts', json.dumps(DARTS))
+        print('Darts sent: ' + str(json.dumps(DARTS)))
 
 
 app.register_blueprint(api, url_prefix='/api')
