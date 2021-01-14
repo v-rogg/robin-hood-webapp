@@ -157,7 +157,7 @@ def confirm_turn():
     if new_points > 0:
         if not (DART_TARGETS[DARTS[0]]['name'] == "" or DART_TARGETS[DARTS[1]]['name'] == ""
                 or DART_TARGETS[DARTS[2]]['name'] == ""):
-            confirm_new_points(new_points=new_points)
+            confirm_new_points(new_points)
             return Response(status=200)
         else:
             return "No enough darts confirmed", 400

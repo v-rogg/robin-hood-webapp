@@ -2,6 +2,7 @@
     import PlayerList from "../components/_NewGame/PlayerList.svelte";
     import GameMode from "../components/_NewGame/GameMode.svelte";
     import StartButton from "../components/_NewGame/StartButton.svelte";
+    import Legend from "../components/_NewGame/Legend.svelte";
 
     // function switchMode() {
     //     switch (CLIENT_STATE) {
@@ -27,6 +28,11 @@
     h2
         font-size: 1.5rem
         font-weight: 300
+
+
+    #bottom
+        display: flex
+        justify-content: space-between
 </style>
 
 <h1>New Game</h1>
@@ -34,4 +40,8 @@
 
 <PlayerList/>
 <GameMode/>
-<StartButton/>
+
+<div id="bottom">
+    <Legend/>
+    <StartButton/>
+</div>

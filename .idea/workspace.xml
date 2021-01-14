@@ -4,13 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Refactor&#10;Add server side checks">
-      <change afterPath="$PROJECT_DIR$/client/src/components/_Game/Two.svelte" afterDir="false" />
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Simple Dart display">
+      <change afterPath="$PROJECT_DIR$/client/src/components/_NewGame/Legend.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Dartboard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Dartboard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/_NewGame.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/_NewGame.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +40,7 @@
         <option value="Player" />
         <option value="Darts" />
         <option value="Two" />
+        <option value="legend" />
       </list>
     </option>
   </component>
@@ -328,7 +326,7 @@
       <workItem from="1610563192907" duration="237000" />
       <workItem from="1610570597216" duration="12230000" />
       <workItem from="1610582962592" duration="2708000" />
-      <workItem from="1610628441866" duration="9216000" />
+      <workItem from="1610628441866" duration="10514000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -561,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610588212692</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Simple Dart display">
+      <created>1610658982513</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1610658982513</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +608,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add start game redirect" />
     <MESSAGE value="Add store&#10;Add two page svelte app" />
     <MESSAGE value="Add blueprints" />
     <MESSAGE value="Refactor" />
@@ -628,7 +632,8 @@
     <MESSAGE value="Add suggestions" />
     <MESSAGE value="Remove deprecated components" />
     <MESSAGE value="Refactor&#10;Add server side checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor&#10;Add server side checks" />
+    <MESSAGE value="Simple Dart display" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simple Dart display" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___1_.coverage" NAME="Flask (main.py) (1) Coverage Results" MODIFIED="1609780257846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
