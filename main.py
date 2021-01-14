@@ -237,6 +237,7 @@ def add_player(data):
             entry = {'uuid': str(uuid.uuid4()),
                      'name': ldata['name'],
                      # 'points': 501,
+                     'checkout': True,
                      'active': False,
                      'turns': []}
             PLAYERS.append(entry)
@@ -247,10 +248,19 @@ def add_player(data):
 @socketio.on('removePlayer')
 def remove_player(data):
     ldata = json.loads(data)
-    if ldata['uuid'] and ldata['name'] and ldata['active'] and ldata['turns']:
-        print('Player received to REMOVE: ' + str(ldata))
-        PLAYERS.remove(ldata)
-        send_players()
+    # if ldata['uuid'] and ldata['name'] and ldata['active'] and ldata['turns']:
+    print('Player received to REMOVE: ' + str(ldata))
+    PLAYERS.remove(ldata)
+    send_players()
+
+
+@socketio.on('togglePlayerCheckout')
+def toggle_player_checkout(data):
+    ldata = json.loads(data)
+    print('Player received to TOGGLE CHECKOUT: ' + str(ldata))
+    player = next(i for i, p in enumerate(PLAYERS) if p['uuid'] == ldata['uuid'])
+    PLAYERS[player]['checkout'] = not PLAYERS[player]['checkout']
+    send_players()
 
 
 @socketio.on('setGameMode')

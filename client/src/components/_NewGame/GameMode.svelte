@@ -18,7 +18,7 @@
         display: grid
         grid-template-columns: repeat(2, 1fr)
 
-        div
+        button
             height: 80px
             display: flex
             align-items: center
@@ -26,7 +26,11 @@
             margin: 0
             font-size: 1.5rem
             font-weight: 500
+            border: none
             border-bottom: 1px solid $grey
+            background: none
+            outline: none
+            padding: 0
 
             &:not(&:last-of-type)
                 border-left: 1px solid $grey
@@ -35,15 +39,18 @@
                 cursor: pointer
                 background: $grey
 
+            &:active
+                background: darken($grey, 10)
+
         &__highlight
-            background: $lightgrey
+            background: $lightgrey !important
 </style>
 
 <div class="gamemode">
-    <div id="501" class:gamemode__highlight={gamemode === '501'} on:click={() => {setGameMode('501')}}>
+    <button id="501" class:gamemode__highlight={gamemode === '501'} on:click={() => {setGameMode('501')}}>
         501
-    </div>
-    <div id="301" class:gamemode__highlight={gamemode === '301'} on:click={() => {setGameMode('301')}}>
+    </button>
+    <button id="301" class:gamemode__highlight={gamemode === '301'} on:click={() => {setGameMode('301')}}>
         301
-    </div>
+    </button>
 </div>

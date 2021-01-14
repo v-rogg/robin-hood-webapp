@@ -1,5 +1,6 @@
 <script lang="ts">
     export let DART_TARGETS;
+    export let currentPlayer;
     export let d0;
     export let d1;
     export let d2;
@@ -92,7 +93,7 @@
                 <span>{DART_TARGETS[d0].value}</span>
             {/if}
         </div>
-        {#if suggestion[0]}
+        {#if suggestion[0] && currentPlayer.checkout}
             <div class="suggestion">
                 {suggestion[0]}
             </div>
@@ -109,7 +110,7 @@
                 <span>{DART_TARGETS[d1].value}</span>
             {/if}
         </div>
-        {#if suggestion[1]}
+        {#if suggestion[1] && currentPlayer.checkout}
             <div class="suggestion">
                 {suggestion[1]}
             </div>
@@ -126,7 +127,7 @@
                 <span>{DART_TARGETS[d2].value}</span>
             {/if}
         </div>
-        {#if suggestion[2]}
+        {#if suggestion[2] && currentPlayer.checkout}
             <div class="suggestion">
                 {suggestion[2]}
             </div>

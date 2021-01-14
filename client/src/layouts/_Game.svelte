@@ -96,6 +96,6 @@
 </script>
 
 <Dartboard/>
-<Darts bind:d0={d0} bind:d1={d1} bind:d2={d2} {DART_TARGETS} {suggestion}/>
+<Darts bind:d0={d0} bind:d1={d1} bind:d2={d2} {currentPlayer} {DART_TARGETS} {suggestion}/>
 <Player/>
 <Stats {currentPlayer} {points} {d0} {d1} {d2} {players} {DART_TARGETS}/>
