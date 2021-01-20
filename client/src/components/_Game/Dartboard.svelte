@@ -1,44 +1,8 @@
 <script lang="ts">
     import Two from "./Two.svelte";
+
+    export let sensor_darts = [];
 </script>
-
-<!--<script lang="ts">-->
-<!--    import {onMount} from "svelte";-->
-<!--    import Two from "two.js";-->
-
-<!--    let two;-->
-
-<!--    onMount(() =>  {-->
-<!--        two = new Two({-->
-<!--            autostart: true,-->
-<!--            type: Two.Types.canvas,-->
-<!--            height: 300,-->
-<!--            width: 300,-->
-<!--        }).appendTo(document.getElementById('two'));-->
-
-<!--        const scale = two.width/451;-->
-
-<!--        let t4 = two.makeCircle(two.height / 2, two.height / 2, ((340) * scale) / 2);-->
-<!--        t4.fill = "#0000FF";-->
-
-<!--        let t3 = two.makeCircle(two.height / 2, two.height / 2, ((318) * scale) / 2);-->
-<!--        t3.fill = "#FFFFFF";-->
-
-<!--        let t2 = two.makeCircle(two.height / 2, two.height / 2, ((218) * scale) / 2);-->
-<!--        t2.fill = "#0000FF";-->
-
-<!--        let t1 = two.makeCircle(two.height / 2, two.height / 2, ((196) * scale) / 2);-->
-<!--        t1.fill = "#FFFFFF";-->
-
-<!--        let dbull = two.makeCircle(two.height / 2, two.height / 2, (32 * scale) / 2);-->
-<!--        dbull.fill = "#0000FF";-->
-
-<!--        let bull = two.makeCircle(two.height / 2, two.height / 2, (14 * scale) / 2);-->
-<!--        bull.fill = "#FF0000";-->
-
-<!--    })-->
-
-<!--</script>-->
 
 <style lang="sass">
     #dartboard
@@ -70,8 +34,8 @@
 <!--        <circle cx="7" cy="7" r="3" fill="white"/>-->
 <!--    </svg>-->
     <picture>
-        <source src="/app/dartboard-small.webp" type="image/webp">
-        <img src="/app/dartboard-small.png" type="image/png" alt="Dartboard">
+<!--        <source src="/app/dartboard-small.webp" type="image/webp">-->
+        <img src="/app/unicorn-small.png" type="image/png" alt="Dartboard">
     </picture>
-    <Two/>
+    <Two {sensor_darts}/>
 </div>
