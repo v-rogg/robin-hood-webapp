@@ -12,6 +12,7 @@ api = Blueprint('api', __name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'notsosecret!'
 socketio = SocketIO(app)
 
+
 # -------------------------------
 # Init
 # -------------------------------
@@ -63,7 +64,7 @@ def darts_over():
     if activePlayer >= len(PLAYERS):
         activePlayer = 0
     PLAYERS[activePlayer]['active'] = True
-    send_players()
+    # send_players()
 
 
 def get_points(player):
@@ -76,9 +77,10 @@ def end_game():
     PLAYERS.sort(key=get_points)
     for player in PLAYERS:
         player['active'] = False
-    send_players()
+    # send_players()
     SERVER_STATE = 'End Game'
     send_server_state()
+    socketio.emit('sensor-end-game')
 
 
 def confirm_new_points(new_points):
@@ -98,7 +100,7 @@ def confirm_new_points(new_points):
         if activePlayer >= len(PLAYERS):
             activePlayer = 0
         PLAYERS[activePlayer]['active'] = True
-        send_players()
+        # send_players()
 
     elif new_points == 0:
         # Exact
@@ -118,6 +120,9 @@ def confirm_new_points(new_points):
     else:
         # Over
         darts_over()
+
+    send_players()
+    socketio.emit('sensor-start-game')
 
 
 @api.route('/start', methods=['POST'])
@@ -140,6 +145,7 @@ def start_game():
     reset_and_send_darts()
     send_players()
     send_server_state()
+    socketio.emit('sensor-start-game')
     return Response(status=200)
 
 
@@ -163,7 +169,7 @@ def confirm_turn():
             return "No enough darts confirmed", 400
 
     else:
-        confirm_new_points(new_points=new_points)
+        confirm_new_points(new_points)
         return Response(status=200)
 
 
@@ -181,6 +187,7 @@ def reset():
     print('Game Mode sent: ' + str(json.dumps(GAMEMODE)))
     send_players()
     send_server_state()
+    socketio.emit('sensor-end-game')
     return Response(status=200)
 
 
@@ -204,6 +211,7 @@ def next_leg():
     SERVER_STATE = 'Started'
     send_server_state()
     reset_and_send_darts()
+    socketio.emit('sensor-start-game')
     return Response(status=200)
 
 
@@ -288,7 +296,6 @@ def set_darts(data):
 @socketio.on('sensorDarts')
 def sensor_darts(data):
     socketio.emit('sensorDarts', data)
-    # print('Sensor Darts received: ' + str(data))
 
 
 app.register_blueprint(api, url_prefix='/api')

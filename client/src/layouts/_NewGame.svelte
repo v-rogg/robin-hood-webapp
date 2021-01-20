@@ -37,7 +37,7 @@
 
 <h1>New Game</h1>
 <h2>Players & Game Mode</h2>
-
+<!-- TODO: Add button titles-->
 <PlayerList/>
 <GameMode/>
 

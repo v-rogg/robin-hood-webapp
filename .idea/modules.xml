@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Robin Hood.iml" filepath="$PROJECT_DIR$/.idea/Robin Hood.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../02_sensor/raspberry-rplidar/.idea/Robin Hood Sensor.iml" filepath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/.idea/Robin Hood Sensor.iml" />
     </modules>
   </component>
 </project>
