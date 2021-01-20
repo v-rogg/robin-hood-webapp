@@ -1,6 +1,6 @@
 [
   { "type": "none", "name": "", "value": 0, "color": "white" },
-  { "type": "none", "name": "X", "value": 0, "color": "white" },
+  { "type": "missed", "name": "X", "value": 0, "color": "white" },
   { "type": "single", "name": "1", "value": 1, "color": "beige" },
   { "type": "single", "name": "2", "value": 2, "color": "black" },
   { "type": "single", "name": "3", "value": 3, "color": "black" },
