@@ -25,6 +25,7 @@ DTObj = open('static/darts.json')
 DTCOObj = open('static/dart-checkout.json')
 DART_TARGETS = json.load(DTObj)
 DART_CHECKOUT = json.load(DTCOObj)
+LAST_SENSOR_DARTS = []
 activePlayer = -1
 copyright_year = datetime.datetime.now().year
 
@@ -42,6 +43,7 @@ def application():
                            DARTS=DARTS,
                            DART_TARGETS=DART_TARGETS,
                            DART_CHECKOUT=DART_CHECKOUT,
+                           LAST_SENSOR_DARTS=LAST_SENSOR_DARTS,
                            copyright_year=copyright_year)
 
 
@@ -230,8 +232,10 @@ def send_server_state():
 
 
 def reset_and_send_darts():
-    global DARTS
+    global DARTS, LAST_SENSOR_DARTS
     DARTS = [0, 0, 0]
+    LAST_SENSOR_DARTS = []
+    socketio.emit('sensorDarts', json.dumps(LAST_SENSOR_DARTS))
     socketio.emit('darts', json.dumps(DARTS))
     print('Darts sent: ' + str(json.dumps(DARTS)))
 
@@ -295,7 +299,10 @@ def set_darts(data):
 
 @socketio.on('sensorDarts')
 def sensor_darts(data):
-    socketio.emit('sensorDarts', data)
+    ldata = json.loads(data)
+    global LAST_SENSOR_DARTS
+    LAST_SENSOR_DARTS = ldata
+    socketio.emit('sensorDarts', json.dumps(ldata))
 
 
 app.register_blueprint(api, url_prefix='/api')

@@ -12,15 +12,16 @@
     const DART_TARGETS = INITIAL_DART_TARGETS;
     const DART_CHECKOUT = INITIAL_DART_CHECKOUT;
 
+    let [d0, d1, d2] = [0, 0, 0];
+    let lastReceivedDarts = [0, 0, 0];
+    let sensor_darts = INITIAL_LAST_SENSOR_DARTS;
+    let ready = false;
+
     onMount(() => {
         [d0, d1, d2] = INITIAL_DARTS;
         lastReceivedDarts = [d0, d1, d2];
         ready = true;
     })
-
-    let [d0, d1, d2] = [0, 0, 0];
-    let ready = false;
-    let lastReceivedDarts = [0, 0, 0];
 
     function getPoints(d0, d1, d2) {
         const selectNodes = document.getElementsByTagName('select');
@@ -42,6 +43,10 @@
         setTimeout(() => {
             ready = true
         }, 500)
+    })
+
+    socket.on('sensorDarts', data => {
+        sensor_darts = JSON.parse(data);
     })
 
     let players;
@@ -74,7 +79,7 @@
         })
         const pointsLeft = currentPlayer.points - points;
         const DC = DART_CHECKOUT.find(e => e.left === pointsLeft && e.darts.length <= throwsLeft);
-        console.log(DC);
+        // console.log(DC);
         if (DC) {
             const simpleSug = [...DC.darts];
             let complexSug = [];
@@ -93,9 +98,10 @@
 
     $: suggestion = getSuggestion(points, [d0, d1, d2]);
 
+
 </script>
 
-<Dartboard/>
-<Darts bind:d0={d0} bind:d1={d1} bind:d2={d2} {currentPlayer} {DART_TARGETS} {suggestion}/>
+<Dartboard {sensor_darts}/>
+<Darts bind:d0={d0} bind:d1={d1} bind:d2={d2} {sensor_darts} {currentPlayer} {DART_TARGETS} {suggestion}/>
 <Player/>
 <Stats {currentPlayer} {points} {d0} {d1} {d2} {players} {DART_TARGETS}/>

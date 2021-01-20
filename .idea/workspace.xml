@@ -4,21 +4,21 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Add button script to simulate dart hit">
-      <change afterPath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/scan-with-button.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/vibration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Robin Hood.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Robin Hood.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Fix layout&#10;Add different dart color based on dart ID">
+      <change afterPath="$PROJECT_DIR$/client/public/unicorn-small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/unicorn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/unicorn.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/darts.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Dartboard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Dartboard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Two.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Two.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_NewGame/Legend.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_NewGame/Legend.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/_NewGame.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/_NewGame.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles/theme.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/theme.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/.idea/Robin Hood Sensor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/.idea/Robin Hood Sensor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/button.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/darts.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/darts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,7 @@
         <entry key="$PROJECT_DIR$" value="feature-new-game-screen" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../02_sensor/raspberry-rplidar" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -121,6 +121,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\02_sensor\raspberry-rplidar" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend\static\favicons\" />
       <recent name="D:\01_Work\02_Projects\p0004_Robin_Hood\01_frontend" />
@@ -244,7 +245,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Robin Hood Sensor" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -423,15 +424,14 @@
       <item itemvalue="Compound.Robin Hood WebServer Development" />
       <item itemvalue="npm.npm dev" />
       <item itemvalue="Python.SocketIO Flask Server Debug" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.version" />
       <item itemvalue="Python.button" />
       <item itemvalue="Python.vibration" />
       <item itemvalue="Python.main_old" />
-      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.main_old" />
         <item itemvalue="Python.vibration" />
         <item itemvalue="Python.version" />
@@ -492,6 +492,9 @@
       <workItem from="1610808847121" duration="18857000" />
       <workItem from="1610886334486" duration="11132000" />
       <workItem from="1610965155362" duration="49000" />
+      <workItem from="1611146045141" duration="1292000" />
+      <workItem from="1611148404815" duration="3877000" />
+      <workItem from="1611157574619" duration="19962000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore">
       <created>1609335116894</created>
@@ -752,7 +755,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610725435661</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Add vibration sensor&#10;Add multiprocessing&#10;Add Linear Sum Assignment to get Dart ID">
+      <created>1611146162680</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1611146162680</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Fix layout&#10;Add different dart color based on dart ID">
+      <created>1611146448809</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1611146448809</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -794,9 +811,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add SocketIO" />
-    <MESSAGE value="Add remove player" />
-    <MESSAGE value="Add random startGame&#10;Add nextPlayer&#10;Switch First/Last Name to single Name" />
     <MESSAGE value="Add SERVER_STATE / CLIENT_STATE&#10;Add Reset" />
     <MESSAGE value="Switch players ul to table" />
     <MESSAGE value="Update layout" />
@@ -819,7 +833,10 @@
     <MESSAGE value="Add legend to new game layout" />
     <MESSAGE value="Add checkout table option to new game layout and game layout" />
     <MESSAGE value="Add button script to simulate dart hit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add button script to simulate dart hit" />
+    <MESSAGE value="Add vibration sensor&#10;Add multiprocessing&#10;Add Linear Sum Assignment to get Dart ID" />
+    <MESSAGE value="Add" />
+    <MESSAGE value="Fix layout&#10;Add different dart color based on dart ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix layout&#10;Add different dart color based on dart ID" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___1_.coverage" NAME="Flask (main.py) (1) Coverage Results" MODIFIED="1609780257846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -828,8 +845,8 @@
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1610372291754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__app_svelte_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1609500795562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$vibration.coverage" NAME="vibration Coverage Results" MODIFIED="1610811958706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../02_sensor/raspberry-rplidar" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1610831415133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../02_sensor/raspberry-rplidar" />
-    <SUITE FILE_PATH="coverage/Robin_Hood$SocketIO_Flask_Server_Debug.coverage" NAME="SocketIO Flask Server Debug Coverage Results" MODIFIED="1610886834663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Robin_Hood$main.coverage" NAME="main Coverage Results" MODIFIED="1611182142877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../02_sensor/raspberry-rplidar" />
+    <SUITE FILE_PATH="coverage/Robin_Hood$SocketIO_Flask_Server_Debug.coverage" NAME="SocketIO Flask Server Debug Coverage Results" MODIFIED="1611160854512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Robin_Hood$piezo.coverage" NAME="piezo Coverage Results" MODIFIED="1610714594581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../02_sensor/raspberry-rplidar" />
     <SUITE FILE_PATH="coverage/Robin_Hood$test.coverage" NAME="test Coverage Results" MODIFIED="1610716015620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../02_sensor/raspberry-rplidar" />
     <SUITE FILE_PATH="coverage/Robin_Hood$peizo.coverage" NAME="peizo Coverage Results" MODIFIED="1610724810989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../02_sensor/raspberry-rplidar" />
