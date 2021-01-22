@@ -3,6 +3,7 @@
     import Two from "two.js";
 
     export let sensor_darts = [];
+    export let players;
 
     let two = new Two({
         autostart: true,
@@ -83,7 +84,22 @@
 
     }
 
+    function remove_darts(players) {
+        dart.forEach(d => {
+            if (d[0]) {
+                d[0].remove()
+            }
+            if (d[1]) {
+                d[1].remove()
+            }
+            if (d[2]) {
+                d[2].remove()
+            }
+        })
+    }
+
     $: update_darts(sensor_darts);
+    $: remove_darts(players);
 
 </script>
 
