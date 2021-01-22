@@ -12,8 +12,8 @@
         const ws_socket = "ws://{{ ip|safe }}:{{ port|safe }}";
 
     </script>
-	<link rel='stylesheet' href='/app/build/bundle.css'>
-	<script defer src='/app/build/bundle.js'></script>
+	<link rel='stylesheet' type="text/css" href='/app/build/bundle.css'>
+	<script defer src='/app/build/bundle.js' type="application/javascript"></script>
 
     <title>Robin Hood - Dart Assistant</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicons/robin-128.png') }}">
