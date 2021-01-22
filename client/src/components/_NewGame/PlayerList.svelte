@@ -1,7 +1,7 @@
 <script lang="ts">
     import {io} from "socket.io-client";
     import {PLAYERS_STORE} from "../../stores";
-    const socket = io('ws://192.168.178.48:3000');
+    const socket = io(ws_socket);
 
     let name;
     let players;

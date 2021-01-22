@@ -13,7 +13,7 @@
         SERVER_STATE_STORE
     } from "./stores";
 
-    const socket = io('ws://192.168.178.48:3000');
+    const socket = io(ws_socket);
 
     let CLIENT_STATE, SERVER_STATE;
     CLIENT_STATE_STORE.subscribe(value => CLIENT_STATE = value);

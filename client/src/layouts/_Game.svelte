@@ -7,7 +7,7 @@
     import Stats from "../components/_Game/Stats.svelte";
     import Darts from "../components/_Game/Darts.svelte";
 
-    const socket = io('ws://192.168.178.48:3000');
+    const socket = io(ws_socket);
 
     const DART_TARGETS = INITIAL_DART_TARGETS;
     const DART_CHECKOUT = INITIAL_DART_CHECKOUT;

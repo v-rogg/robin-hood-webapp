@@ -11,6 +11,8 @@ client = Blueprint('client', __name__, template_folder='templates')
 api = Blueprint('api', __name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'notsosecret!'
 socketio = SocketIO(app)
+ip = socket.gethostbyname(socket.gethostname())
+port = 3000
 
 
 # -------------------------------
@@ -44,7 +46,9 @@ def application():
                            DART_TARGETS=DART_TARGETS,
                            DART_CHECKOUT=DART_CHECKOUT,
                            LAST_SENSOR_DARTS=LAST_SENSOR_DARTS,
-                           copyright_year=copyright_year)
+                           copyright_year=copyright_year,
+                           ip=ip,
+                           port=port)
 
 
 @client.route('/<path:path>')
