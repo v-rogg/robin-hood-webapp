@@ -4,8 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Remove deprecated code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Update Readme.md">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -510,14 +509,7 @@
       <workItem from="1611157574619" duration="22988000" />
       <workItem from="1611229024174" duration="19457000" />
       <workItem from="1611279026677" duration="2594000" />
-      <workItem from="1611310830085" duration="16490000" />
-    </task>
-    <task id="LOCAL-00005" summary="Refactor">
-      <created>1609500748123</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1609500748123</updated>
+      <workItem from="1611310830085" duration="16571000" />
     </task>
     <task id="LOCAL-00006" summary="Refactor">
       <created>1609500793676</created>
@@ -855,7 +847,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611348222474</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Update Readme.md">
+      <created>1611348384265</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1611348384265</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -897,7 +896,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add dart-checkout.json" />
     <MESSAGE value="Add DART_CHECKOUT to SSR&#10;Fix beige color accessibility" />
     <MESSAGE value="Add suggestions" />
     <MESSAGE value="Remove deprecated components" />
@@ -922,7 +920,8 @@
     <MESSAGE value="Update svelte link" />
     <MESSAGE value="Update twojs to remove points on player change" />
     <MESSAGE value="Remove deprecated code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove deprecated code" />
+    <MESSAGE value="Update Readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Readme.md" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___1_.coverage" NAME="Flask (main.py) (1) Coverage Results" MODIFIED="1609780257846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
