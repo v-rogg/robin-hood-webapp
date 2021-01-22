@@ -3,17 +3,6 @@
     import GameMode from "../components/_NewGame/GameMode.svelte";
     import StartButton from "../components/_NewGame/StartButton.svelte";
     import Legend from "../components/_NewGame/Legend.svelte";
-
-    // function switchMode() {
-    //     switch (CLIENT_STATE) {
-    //         case 'New Game':
-    //             CLIENT_STATE_STORE.set('Add Players');
-    //             break;
-    //         case 'Add Players':
-    //             CLIENT_STATE_STORE.set('New Game');
-    //             break;
-    //     }
-    // }
 </script>
 
 <style lang="sass">
@@ -37,7 +26,6 @@
 
 <h1>New Game</h1>
 <h2>Players & Game Mode</h2>
-<!-- TODO: Add button titles-->
 <PlayerList/>
 <GameMode/>
 
