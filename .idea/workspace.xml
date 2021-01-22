@@ -4,25 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Add initial sensor dart targets&#10;Add reactive sensor dart targets">
-      <change afterPath="$PROJECT_DIR$/client/public/unicorn-small.webp" afterDir="false" />
+    <list default="true" id="9f712f4a-5ab5-4162-b673-b0ee5ab7918c" name="Default Changelist" comment="Remove deprecated code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Dartboard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Dartboard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Darts.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Stats.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Stats.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_Game/Two.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_Game/Two.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_NewGame/GameMode.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_NewGame/GameMode.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/_NewGame/PlayerList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/_NewGame/PlayerList.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/_Game.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/_NewGame.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/_NewGame.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/button.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/main_old.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../02_sensor/raspberry-rplidar/sample.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -526,35 +510,7 @@
       <workItem from="1611157574619" duration="22988000" />
       <workItem from="1611229024174" duration="19457000" />
       <workItem from="1611279026677" duration="2594000" />
-      <workItem from="1611310830085" duration="15556000" />
-    </task>
-    <task id="LOCAL-00001" summary="Add gitignore">
-      <created>1609335116894</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1609335116894</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Add gitignore&#10;Add flask">
-      <created>1609335374194</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1609335374194</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Add readme">
-      <created>1609336472136</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1609336472136</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Test hybrid approach">
-      <created>1609497390655</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1609497390655</updated>
+      <workItem from="1611310830085" duration="16490000" />
     </task>
     <task id="LOCAL-00005" summary="Refactor">
       <created>1609500748123</created>
@@ -836,7 +792,70 @@
       <option name="project" value="LOCAL" />
       <updated>1611186655199</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Remove deprecated code">
+      <created>1611347423553</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1611347423554</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Recalibrate script for new dartboard">
+      <created>1611347496448</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1611347496448</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Add dynamic WebSocket IP">
+      <created>1611348043693</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1611348043693</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Add sensor darts">
+      <created>1611348130091</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1611348130091</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Add dartboard image as webp">
+      <created>1611348144327</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1611348144327</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Update requirements.txt">
+      <created>1611348162311</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1611348162312</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Update svelte link">
+      <created>1611348178516</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1611348178516</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Update twojs to remove points on player change">
+      <created>1611348199654</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1611348199654</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Remove deprecated code">
+      <created>1611348222474</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1611348222474</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -878,14 +897,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add synced darts&#10;Add dart targets&#10;Add stats" />
-    <MESSAGE value="Add favicons&#10;Add End Game Layout&#10;Add Win condition&#10;Add Stats" />
-    <MESSAGE value="Refactor _Gaem" />
-    <MESSAGE value="Refactor main.py" />
-    <MESSAGE value="Fix mobile darts form layout" />
-    <MESSAGE value="Add requirements.txt" />
-    <MESSAGE value="Add confetti" />
-    <MESSAGE value="Fixed next-leg bug" />
     <MESSAGE value="Add dart-checkout.json" />
     <MESSAGE value="Add DART_CHECKOUT to SSR&#10;Fix beige color accessibility" />
     <MESSAGE value="Add suggestions" />
@@ -903,7 +914,15 @@
     <MESSAGE value="Update darts.json" />
     <MESSAGE value="Add unicorn colors to theme" />
     <MESSAGE value="Add initial sensor dart targets&#10;Add reactive sensor dart targets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add initial sensor dart targets&#10;Add reactive sensor dart targets" />
+    <MESSAGE value="Recalibrate script for new dartboard" />
+    <MESSAGE value="Add dynamic WebSocket IP" />
+    <MESSAGE value="Add sensor darts" />
+    <MESSAGE value="Add dartboard image as webp" />
+    <MESSAGE value="Update requirements.txt" />
+    <MESSAGE value="Update svelte link" />
+    <MESSAGE value="Update twojs to remove points on player change" />
+    <MESSAGE value="Remove deprecated code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove deprecated code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Robin_Hood$Flask__main_py___1_.coverage" NAME="Flask (main.py) (1) Coverage Results" MODIFIED="1609780257846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
