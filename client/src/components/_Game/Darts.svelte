@@ -18,6 +18,7 @@
     }
 
     $: sensor_darts_targets = get_sensor_darts_targets(sensor_darts);
+
 </script>
 
 <style lang="sass">
@@ -106,6 +107,9 @@
                 font-size: 3.25rem
                 width: clamp(100px, 25vw, 150px)
 
+            .sensor_dart_target--big
+                width: clamp(100px, 25vw, 150px) !important
+
     @media (max-width: 420px)
         form
             select
@@ -121,7 +125,7 @@
             {/each}
         </select>
         <div class="label">
-            {#if DART_TARGETS[d0].type !== 'single' && DART_TARGETS[d0].type !== 'none'}
+            {#if DART_TARGETS[d0].type === 'double' || DART_TARGETS[d0].type === 'triple'}
                 <span>{DART_TARGETS[d0].value}</span>
             {/if}
         </div>
@@ -144,7 +148,7 @@
             {/each}
         </select>
         <div class="label">
-            {#if DART_TARGETS[d1].type !== 'single' && DART_TARGETS[d1].type !== 'none'}
+            {#if DART_TARGETS[d1].type === 'double' || DART_TARGETS[d1].type === 'triple'}
                 <span>{DART_TARGETS[d1].value}</span>
             {/if}
         </div>
@@ -167,7 +171,7 @@
             {/each}
         </select>
         <div class="label">
-            {#if DART_TARGETS[d2].type !== 'single' && DART_TARGETS[d2].type !== 'none'}
+            {#if DART_TARGETS[d2].type === 'double' || DART_TARGETS[d2].type === 'triple'}
                 <span>{DART_TARGETS[d2].value}</span>
             {/if}
         </div>

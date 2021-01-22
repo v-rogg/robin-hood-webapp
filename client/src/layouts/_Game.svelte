@@ -16,6 +16,7 @@
     let lastReceivedDarts = [0, 0, 0];
     let sensor_darts = INITIAL_LAST_SENSOR_DARTS;
     let ready = false;
+    let darts = [0, 0, 0];
 
     onMount(() => {
         [d0, d1, d2] = INITIAL_DARTS;
@@ -23,18 +24,22 @@
         ready = true;
     })
 
-    function getPoints(d0, d1, d2) {
+
+    function getPoints(d0, d1, d2, darts) {
         const selectNodes = document.getElementsByTagName('select');
         for (let node of selectNodes) {
             node.classList.remove('highlight--error');
         }
-        if ((d0 != lastReceivedDarts[0] || d1 != lastReceivedDarts[1] || d2 != lastReceivedDarts[2]) && ready) {
-            socket.emit('setDarts', JSON.stringify([d0, d1, d2]))
-        }
-        return DART_TARGETS[d0].value + DART_TARGETS[d1].value + DART_TARGETS[d2].value
+        // if (d0 == darts[0] && d1 == darts[1] && d2 == darts[2]) {
+            if ((d0 != lastReceivedDarts[0] || d1 != lastReceivedDarts[1] || d2 != lastReceivedDarts[2]) && ready) {
+                socket.emit('setDarts', JSON.stringify([d0, d1, d2]))
+            }
+        // }
+
+        return DART_TARGETS[darts[0]].value + DART_TARGETS[darts[1]].value + DART_TARGETS[darts[2]].value
     }
 
-    $: points = getPoints(d0, d1, d2);
+    $: points = getPoints(d0, d1, d2, darts);
 
     socket.on('darts', data => {
         lastReceivedDarts = [d0, d1, d2];
@@ -42,7 +47,7 @@
         ready = false
         setTimeout(() => {
             ready = true
-        }, 500)
+        }, 250)
     })
 
     socket.on('sensorDarts', data => {
@@ -68,22 +73,19 @@
         }
         return currentPlayer;
     }
-
     $: currentPlayer = getCurrentPlayer(players);
 
-
-    function getSuggestion(points, [d0, d1, d2]) {
+    function getSuggestion(points, darts, players) {
         let throwsLeft = 3;
-        [d0, d1, d2].forEach(d => {
+        darts.forEach(d => {
             if (DART_TARGETS[d].name !== "") throwsLeft--;
         })
         const pointsLeft = currentPlayer.points - points;
         const DC = DART_CHECKOUT.find(e => e.left === pointsLeft && e.darts.length <= throwsLeft);
-        // console.log(DC);
         if (DC) {
             const simpleSug = [...DC.darts];
             let complexSug = [];
-            [d0, d1, d2].forEach(d => {
+            darts.forEach(d => {
                 if (DART_TARGETS[d].name !== "") {
                     complexSug.push(null)
                 } else {
@@ -96,12 +98,27 @@
         }
     }
 
-    $: suggestion = getSuggestion(points, [d0, d1, d2]);
+    $: suggestion = getSuggestion(points, darts, players);
 
+    function combineDarts(sensor_darts, form_darts) {
+        let array = [0, 0, 0]
+        for (let i = 0; i < 3; i++) {
+            if (DART_TARGETS[form_darts[i]].type !== 'none') {
+                array[i] = form_darts[i]
+            } else if (sensor_darts[i] != null) {
+                array[i] = sensor_darts[i][2]
+            } else
+                array[i] = 0
+        }
+        return array
+    }
+
+    $: darts = combineDarts(sensor_darts, [d0, d1, d2]);
 
 </script>
 
-<Dartboard {sensor_darts}/>
+<Dartboard {sensor_darts} {players}/>
 <Darts bind:d0={d0} bind:d1={d1} bind:d2={d2} {sensor_darts} {currentPlayer} {DART_TARGETS} {suggestion}/>
+<!--<Darts bind:d0={d0} bind:d1={d1} bind:d2={d2} {sensor_darts} {currentPlayer} {DART_TARGETS}/>-->
 <Player/>
-<Stats {currentPlayer} {points} {d0} {d1} {d2} {players} {DART_TARGETS}/>
+<Stats {currentPlayer} {points} {players} {DART_TARGETS} {darts}/>

@@ -5,6 +5,7 @@ import json
 import uuid
 import datetime
 import re
+import socket
 
 app = Flask(__name__)
 client = Blueprint('client', __name__, template_folder='templates')
@@ -22,7 +23,7 @@ port = 3000
 PLAYERS = []
 SERVER_STATE = 'New Game'
 GAMEMODE = '501'
-DARTS = [0, 0, 0]
+CLIENT_DARTS = [0, 0, 0]
 DTObj = open('static/darts.json')
 DTCOObj = open('static/dart-checkout.json')
 DART_TARGETS = json.load(DTObj)
@@ -42,7 +43,7 @@ def application():
                            SERVER_STATE=SERVER_STATE,
                            PLAYERS=json.dumps(PLAYERS),
                            GAMEMODE=GAMEMODE,
-                           DARTS=DARTS,
+                           DARTS=CLIENT_DARTS,
                            DART_TARGETS=DART_TARGETS,
                            DART_CHECKOUT=DART_CHECKOUT,
                            LAST_SENSOR_DARTS=LAST_SENSOR_DARTS,
@@ -89,7 +90,7 @@ def end_game():
     socketio.emit('sensor-end-game')
 
 
-def confirm_new_points(new_points):
+def confirm_new_points(new_points, combined_darts):
     global activePlayer
     global SERVER_STATE
     global PLAYERS
@@ -97,9 +98,7 @@ def confirm_new_points(new_points):
     if new_points > 0:
         # Normal
         PLAYERS[activePlayer]['points'] = new_points
-        PLAYERS[activePlayer]['turns'].append([DARTS[0], DARTS[1], DARTS[2]])
-
-        reset_and_send_darts()
+        PLAYERS[activePlayer]['turns'].append([combined_darts[0], combined_darts[1], combined_darts[2]])
 
         PLAYERS[activePlayer]['active'] = False
         activePlayer += 1
@@ -107,18 +106,19 @@ def confirm_new_points(new_points):
             activePlayer = 0
         PLAYERS[activePlayer]['active'] = True
         # send_players()
+        reset_and_send_darts()
 
     elif new_points == 0:
         # Exact
 
         # Check win
-        check = DARTS.copy()
+        check = combined_darts.copy()
         for throw in check:
             if DART_TARGETS[check[-1]]['value'] == 0:
                 check.pop()
         if DART_TARGETS[check[-1]]['type'] == 'double':
             PLAYERS[activePlayer]['points'] = new_points
-            PLAYERS[activePlayer]['turns'].append([DARTS[0], DARTS[1], DARTS[2]])
+            PLAYERS[activePlayer]['turns'].append([combined_darts[0], combined_darts[1], combined_darts[2]])
             end_game()
         else:
             darts_over()
@@ -128,7 +128,6 @@ def confirm_new_points(new_points):
         darts_over()
 
     send_players()
-    socketio.emit('sensor-start-game')
 
 
 @api.route('/start', methods=['POST'])
@@ -157,25 +156,35 @@ def start_game():
 
 @api.route('/confirm-turn', methods=['POST'])
 def confirm_turn():
-    global DARTS
+    global CLIENT_DARTS
     global PLAYERS
     global activePlayer
 
+    combined_darts = [0, 0, 0]
+    for i in range(len(LAST_SENSOR_DARTS)):
+        if LAST_SENSOR_DARTS[i] is not None:
+            combined_darts[i] = (LAST_SENSOR_DARTS[i][2])
+    for i in range(3):
+        if DART_TARGETS[CLIENT_DARTS[i]]['type'] != "none":
+            combined_darts[i] = (CLIENT_DARTS[i])
+
     new_points = PLAYERS[activePlayer]['points'] \
-                 - DART_TARGETS[DARTS[0]]['value'] \
-                 - DART_TARGETS[DARTS[1]]['value'] \
-                 - DART_TARGETS[DARTS[2]]['value']
+                 - DART_TARGETS[combined_darts[0]]['value'] \
+                 - DART_TARGETS[combined_darts[1]]['value'] \
+                 - DART_TARGETS[combined_darts[2]]['value']
 
     if new_points > 0:
-        if not (DART_TARGETS[DARTS[0]]['name'] == "" or DART_TARGETS[DARTS[1]]['name'] == ""
-                or DART_TARGETS[DARTS[2]]['name'] == ""):
-            confirm_new_points(new_points)
+        if not (DART_TARGETS[combined_darts[0]]['name'] == "" or DART_TARGETS[combined_darts[1]]['name'] == ""
+                or DART_TARGETS[combined_darts[2]]['name'] == ""):
+            confirm_new_points(new_points, combined_darts)
+            socketio.emit('sensor-start-game')
             return Response(status=200)
         else:
             return "No enough darts confirmed", 400
 
     else:
-        confirm_new_points(new_points)
+        confirm_new_points(new_points, combined_darts)
+        socketio.emit('sensor-start-game')
         return Response(status=200)
 
 
@@ -184,7 +193,7 @@ def reset():
     global PLAYERS
     global SERVER_STATE
     global GAMEMODE
-    global DARTS
+    global CLIENT_DARTS
     PLAYERS = []
     SERVER_STATE = 'New Game'
     GAMEMODE = '501'
@@ -202,7 +211,7 @@ def next_leg():
     global PLAYERS
     global SERVER_STATE
     global GAMEMODE
-    global DARTS
+    global CLIENT_DARTS
     global activePlayer
     for player in PLAYERS:
         if GAMEMODE == '501':
@@ -236,12 +245,12 @@ def send_server_state():
 
 
 def reset_and_send_darts():
-    global DARTS, LAST_SENSOR_DARTS
-    DARTS = [0, 0, 0]
+    global CLIENT_DARTS, LAST_SENSOR_DARTS
+    CLIENT_DARTS = [0, 0, 0]
     LAST_SENSOR_DARTS = []
     socketio.emit('sensorDarts', json.dumps(LAST_SENSOR_DARTS))
-    socketio.emit('darts', json.dumps(DARTS))
-    print('Darts sent: ' + str(json.dumps(DARTS)))
+    socketio.emit('darts', json.dumps(CLIENT_DARTS))
+    print('Darts sent: ' + str(json.dumps(CLIENT_DARTS)))
 
 
 @socketio.on('addPlayer')
@@ -295,10 +304,10 @@ def set_darts(data):
     # TODO: Check for valid darts
     if len(ldata) == 3 and type(ldata[0]) is int and type(ldata[1]) is int and type(ldata[2]) is int :
         print('Darts received: ' + str(ldata))
-        global DARTS
-        DARTS = ldata
-        socketio.emit('darts', json.dumps(DARTS))
-        print('Darts sent: ' + str(json.dumps(DARTS)))
+        global CLIENT_DARTS
+        CLIENT_DARTS = ldata
+        socketio.emit('darts', json.dumps(CLIENT_DARTS))
+        print('Darts sent: ' + str(json.dumps(CLIENT_DARTS)))
 
 
 @socketio.on('sensorDarts')
@@ -313,4 +322,4 @@ app.register_blueprint(api, url_prefix='/api')
 app.register_blueprint(client, url_prefix='/app')
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=3000, host='0.0.0.0')
+    socketio.run(app, debug=True, port=port, host='0.0.0.0')

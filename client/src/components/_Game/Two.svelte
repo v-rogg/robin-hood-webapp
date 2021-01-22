@@ -1,8 +1,6 @@
 <script lang="ts">
     import {onMount} from "svelte";
     import Two from "two.js";
-    import {io} from "socket.io-client";
-    import {loop_guard} from "svelte/internal";
 
     export let sensor_darts = [];
 
@@ -11,7 +9,6 @@
         height: 300,
         width: 300,
     })
-    const socket = io('ws://192.168.178.48:3000');
 
     let loaded = false;
 
@@ -25,7 +22,6 @@
     })
 
     function update_darts(sensor_darts) {
-        console.log("Update darts")
         for (let i = 0; i < sensor_darts.length; i++) {
             if (dart[i][0]) {
                 dart[i][0].remove()

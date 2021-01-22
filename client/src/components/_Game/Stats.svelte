@@ -3,14 +3,15 @@
     export let currentPlayer;
     export let points;
     export let players;
-    export let d0;
-    export let d1;
-    export let d2;
+    // export let d0;
+    // export let d1;
+    // export let d2;
+    export let darts;
 
-    function getPointsColor(currentPlayer, points, d0, d1, d2) {
+    function getPointsColor(currentPlayer, points, darts) {
         let win = false
         if (currentPlayer.points - points === 0) {
-            let check = [d0, d1, d2]
+            let check = darts
             for (let i = 2; i >= 0; i--) {
                 if (DART_TARGETS[check[i]].type == 'double') {
                     win = true
@@ -27,32 +28,32 @@
 
     }
 
-    $: pointsColor = getPointsColor(currentPlayer, points, d0, d1, d2)
+    $: pointsColor = getPointsColor(currentPlayer, points, darts)
 
-    function getConfirmEnabled(d0, d1, d2) {
+    function getConfirmEnabled(darts) {
         if (currentPlayer.points - points > 0) {
-            return !(DART_TARGETS[d0].name === "" || DART_TARGETS[d1].name === "" || DART_TARGETS[d2].name === "");
+            return !(DART_TARGETS[darts[0]].name === "" || DART_TARGETS[darts[1]].name === "" || DART_TARGETS[darts[2]].name === "");
         } else {
             return true
         }
     }
 
-    $: confirmEnabled = getConfirmEnabled(d0, d1, d2)
+    $: confirmEnabled = getConfirmEnabled(darts)
 
     function highlightForms() {
         const selectNodes = document.getElementsByTagName('select');
         console.log(selectNodes);
         for (let node of selectNodes) {
             if (node.id === "d0") {
-                if (DART_TARGETS[d0].name === "") {
+                if (DART_TARGETS[darts[0]].name === "") {
                     node.classList.add('highlight--error');
                 }
             } else if (node.id === "d1") {
-                if (DART_TARGETS[d1].name === "") {
+                if (DART_TARGETS[darts[1]].name === "") {
                     node.classList.add('highlight--error');
                 }
             } else if (node.id === "d2") {
-                if (DART_TARGETS[d2].name === "") {
+                if (DART_TARGETS[darts[2]].name === "") {
                     node.classList.add('highlight--error');
                 }
             }
