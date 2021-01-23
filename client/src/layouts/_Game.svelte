@@ -25,7 +25,7 @@
     })
 
 
-    function getPoints(d0, d1, d2, darts) {
+    function getPoints(d0, d1, d2) {
         const selectNodes = document.getElementsByTagName('select');
         for (let node of selectNodes) {
             node.classList.remove('highlight--error');
@@ -39,7 +39,7 @@
         return DART_TARGETS[darts[0]].value + DART_TARGETS[darts[1]].value + DART_TARGETS[darts[2]].value
     }
 
-    $: points = getPoints(d0, d1, d2, darts);
+    $: points = getPoints(d0, d1, d2);
 
     socket.on('darts', data => {
         lastReceivedDarts = [d0, d1, d2];
